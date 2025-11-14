@@ -1,0 +1,11 @@
+GOAL: Fix hero, gallery, product, and branding issues in `baecker_charlie_final_combined.html`.
+SCOPE: Work only inside `.superdesign/design_iterations/baecker_charlie_final_combined.html`.
+ASSUMPTION: Assets in `WEBSITE OUTPUT` and `Styleguide SVGs und co` remain stable and accessible via relative paths.
+ASSUMPTION: Existing JS interactions should stay functional; focus on layout/visual refinements.
+RISK: Large inline CSS block may cause context misses; need precise edits to avoid regressions.
+RISK: Image file sizes may affect performance; consider lazy-loading and consistent aspect ratios.
+PLAN STEP 1: Audit hero typography/layout in browser + markup, then adjust per Laws of UX.
+PLAN STEP 2: Rebuild gallery grid with curated assets, consistent ratios, captions, and responsive rules.
+PLAN STEP 3: Normalize product cards (images, text hierarchy, CTA sizing), integrate styleguide badges.
+PLAN STEP 4: Run end-to-end browser QC, note remaining polish items if any.
+

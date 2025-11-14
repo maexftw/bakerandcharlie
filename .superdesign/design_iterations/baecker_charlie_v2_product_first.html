@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Bäcker & Charlie | German Bakery in Bangalore</title>
+    <meta name="description" content="Browse our authentic German bakery menu. Pretzels, Brötchen, Croissants, Sandwiches & more. Order fresh baked goods now.">
+
+    <!-- SEO -->
+    <meta property="og:title" content="Bäcker & Charlie Menu - German Bakery">
+    <meta property="og:description" content="Fresh German baked goods daily in Bangalore">
+    <meta property="og:image" content="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856861a53e53dcd1e0d017b_favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+    <!-- Theme -->
+    <link rel="stylesheet" href="baecker_charlie_theme.css">
+
+    <style>
+        :root {
+            --primary: #D84343;
+            --primary-dark: #B93535;
+            --secondary: #F5E6D3;
+            --background: #FAF8F5;
+            --foreground: #2C1810;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--background);
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--background) 100%);
+            border-bottom: 2px solid #E8DED0;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            background: white;
+            border-right: 1px solid #E8DED0;
+        }
+
+        .category-item {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-height: 48px;
+        }
+
+        .category-item:hover {
+            background: var(--secondary);
+            border-left-color: var(--primary);
+        }
+
+        .category-item.active {
+            background: var(--secondary);
+            border-left-color: var(--primary);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Product Card */
+        .product-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(216, 67, 67, 0.12);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Search Box */
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid #E8DED0;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(216, 67, 67, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6B5D52;
+        }
+
+        /* Order Button */
+        .btn-order {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            min-height: 48px;
+        }
+
+        .btn-order:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(216, 67, 67, 0.3);
+        }
+
+        .btn-add {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-add:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Mobile Sidebar */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                height: 100vh;
+                width: 280px;
+                z-index: 50;
+                transition: left 0.3s ease;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 45;
+            }
+
+            .sidebar-overlay.open {
+                display: block;
+            }
+        }
+
+        /* Focus */
+        *:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <button id="mobile-sidebar-btn" class="md:hidden p-2" aria-label="Open categories menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <a href="#" class="flex items-center">
+                        <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png"
+                             alt="Bäcker & Charlie"
+                             class="h-10 md:h-12 w-auto"
+                             width="150"
+                             height="48">
+                    </a>
+                </div>
+
+                <div class="hidden md:block">
+                    <span class="text-lg font-medium">From <strong class="text-red-600">BERLIN</strong> to <strong class="text-red-600">BENGALURU</strong></span>
+                </div>
+
+                <button class="btn-order">
+                    <i data-lucide="shopping-bag" class="inline-block w-5 h-5 mr-2"></i>
+                    Order Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay (Mobile) -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar w-64 md:w-72" role="navigation" aria-label="Product categories">
+            <div class="p-6">
+                <button id="close-sidebar" class="md:hidden absolute top-4 right-4 p-2" aria-label="Close menu">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+
+                <h2 class="text-xl font-bold mb-6">Categories</h2>
+
+                <nav>
+                    <div class="category-item active" data-category="all">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                        <span>All Products</span>
+                    </div>
+                    <div class="category-item" data-category="breads">
+                        <span class="text-2xl">🥨</span>
+                        <span>Breads & Pretzels</span>
+                    </div>
+                    <div class="category-item" data-category="pastries">
+                        <span class="text-2xl">🥐</span>
+                        <span>Pastries & Sweets</span>
+                    </div>
+                    <div class="category-item" data-category="sandwiches">
+                        <span class="text-2xl">🥪</span>
+                        <span>Sandwiches</span>
+                    </div>
+                    <div class="category-item" data-category="drinks">
+                        <span class="text-2xl">☕</span>
+                        <span>Drinks</span>
+                    </div>
+                    <div class="category-item" data-category="breakfast">
+                        <span class="text-2xl">🍳</span>
+                        <span>Breakfast Specials</span>
+                    </div>
+                </nav>
+
+                <div class="mt-8">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon w-5 h-5"></i>
+                        <input type="text"
+                               id="search-input"
+                               placeholder="Search products..."
+                               aria-label="Search products">
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 bg-red-50 rounded-lg">
+                    <h3 class="font-bold mb-2">Why Choose Us?</h3>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li>✓ Fresh daily</li>
+                        <li>✓ Authentic German</li>
+                        <li>✓ Handmade with care</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main" class="flex-1 p-6 md:p-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Our Menu</h1>
+                    <p class="text-gray-600">Authentic German baked goods, fresh every morning</p>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products-container" class="products-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card" data-category="breads">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812a_item_1170452_1759928150849_jc_pretzel.png"
+                                 alt="Jalapeño & Cheese Pretzel"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Jalapeño & Cheese Pretzel</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Spicy jalapeño with melted cheese on classic pretzel</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹160</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card" data-category="pastries">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50b0e895be72f19ddccd_item_1170510_1759929396105_Berliner___Rhubarb___Kaffir_Lime.png"
+                                 alt="Berliner - Rhubarb & Kaffir Lime"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Berliner - Rhubarb & Kaffir Lime</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Fluffy pastry with exotic rhubarb filling</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹120</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card" data-category="sandwiches">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb6161b228f735a32dc_item_1170490_1759928822212_Fried_Chicken_AF_.png"
+                                 alt="Fried Chicken AF!"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Fried Chicken AF!</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Crispy fried chicken on fresh artisan bread</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹250</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card" data-category="sandwiches">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb6161b228f735a32e3_item_1170489_1759929073367_beef.png"
+                                 alt="The Beef"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">The Beef, On Sauerteigbrötchen</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Premium beef on sourdough bread</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹280</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 5 -->
+                    <article class="product-card" data-category="breads">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812e_item_1170517_1759928286815_cheese_bread.png"
+                                 alt="Käsebrötchen"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Käsebrötchen (Cheese Bread)</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Traditional German cheese bread</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹180</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 6 -->
+                    <article class="product-card" data-category="sandwiches">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb5161b228f735a32ab_item_1170436_1759929038717_caprese.png"
+                                 alt="Caprese Focaccia"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Caprese-Insalata Focaccia</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Fresh mozzarella, tomato, basil on focaccia</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹220</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 7 -->
+                    <article class="product-card" data-category="breads">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                                 alt="Olive & Rosemary Focaccia"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Olive & Rosemary Focaccia</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Italian-style focaccia with German precision</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹150</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 8 -->
+                    <article class="product-card" data-category="pastries">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4ebec1483f176ac29d39_item_1170437_1759929760986_rose.png"
+                                 alt="Bon Fiction - Rose In Pistachio Skies"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Bon Fiction - Rose In Pistachio Skies</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Delicate rose and pistachio pastry</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹180</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 9 -->
+                    <article class="product-card" data-category="breakfast">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dce_item_1172207_1760082905645_1_3.png"
+                                 alt="Eggs Florentine"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Eggs Florentine - Carrot & Spinach</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Healthy breakfast with eggs and greens</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹240</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 10 -->
+                    <article class="product-card" data-category="breads">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b509b7465aea6dc5f0dd6_item_1170463_1759928172412_em_3pcs.png"
+                                 alt="English Muffins"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">English Muffins (3 pcs)</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Perfect for breakfast sandwiches</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹140</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 11 -->
+                    <article class="product-card" data-category="breakfast">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                                 alt="German Breakfast Board"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">German Breakfast Board</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Assorted breads, cheese, and meats</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹450</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 12 -->
+                    <article class="product-card" data-category="breads">
+                        <div class="overflow-hidden">
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                                 alt="Mini Salted Pretzel Party Pack"
+                                 width="300"
+                                 height="220"
+                                 loading="lazy">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">Mini Salted Pretzel - Party Pack</h3>
+                            <p class="text-sm text-gray-600 mb-4 flex-1">Perfect for sharing and events</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-red-600">₹350</span>
+                                <button class="btn-add">Add to Order</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="hidden text-center py-20">
+                    <i data-lucide="search-x" class="w-16 h-16 mx-auto text-gray-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">No products found</h3>
+                    <p class="text-gray-600">Try a different category or search term</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // Mobile sidebar
+        const mobileSidebarBtn = document.getElementById('mobile-sidebar-btn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const closeSidebar = document.getElementById('close-sidebar');
+
+        mobileSidebarBtn?.addEventListener('click', () => {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.add('open');
+        });
+
+        closeSidebar?.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+        });
+
+        sidebarOverlay?.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+        });
+
+        // Category filter
+        const categoryItems = document.querySelectorAll('.category-item');
+        const products = document.querySelectorAll('.product-card');
+        const emptyState = document.getElementById('empty-state');
+
+        categoryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const category = item.dataset.category;
+
+                // Update active state
+                categoryItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+
+                // Filter products
+                let visibleCount = 0;
+                products.forEach(product => {
+                    if (category === 'all' || product.dataset.category === category) {
+                        product.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+
+                // Show/hide empty state
+                if (visibleCount === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                }
+
+                // Close mobile sidebar
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('open');
+            });
+        });
+
+        // Search
+        const searchInput = document.getElementById('search-input');
+        searchInput?.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            products.forEach(product => {
+                const title = product.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+        });
+
+        // Add to order
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const productName = btn.closest('.product-card').querySelector('h3').textContent;
+                alert(`Added "${productName}" to your order!`);
+            });
+        });
+    </script>
+</body>
+</html>

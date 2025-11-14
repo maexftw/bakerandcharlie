@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bäcker & Charlie - Authentic German Café Experience in Bangalore</title>
+    <meta name="description" content="Experience authentic German café culture in Bangalore. Immerse yourself in our story from Berlin to Bengaluru.">
+
+    <!-- SEO -->
+    <meta property="og:title" content="Bäcker & Charlie - German Café Experience">
+    <meta property="og:description" content="From Berlin to Bengaluru - Authentic German café culture">
+    <meta property="og:image" content="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856861a53e53dcd1e0d017b_favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+    <!-- Theme -->
+    <link rel="stylesheet" href="baecker_charlie_theme.css">
+
+    <style>
+        :root {
+            --primary: #D84343;
+            --primary-dark: #B93535;
+            --secondary: #F5E6D3;
+            --background: #FAF8F5;
+            --foreground: #2C1810;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--background);
+        }
+
+        /* Fullscreen Hero */
+        .hero-immersive {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2C1810 0%, #4A3428 100%);
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(44,24,16,0.8));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+        }
+
+        /* Minimal Nav */
+        .minimal-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .minimal-nav.scrolled {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--foreground);
+            padding: 1.5rem 0;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Hero Product */
+        .hero-product {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .hero-product-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Horizontal Scroll */
+        .horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--secondary);
+        }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: var(--secondary);
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .scroll-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .scroll-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(216, 67, 67, 0.15);
+        }
+
+        /* Buttons */
+        .btn-book {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            min-height: 48px;
+        }
+
+        .btn-book:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(216, 67, 67, 0.3);
+        }
+
+        .btn-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-link:hover {
+            gap: 1rem;
+        }
+
+        /* Scroll Down Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Focus */
+        *:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Minimal Navigation -->
+    <nav class="minimal-nav" role="navigation" aria-label="Main navigation">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="#" aria-label="Bäcker & Charlie Home">
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png"
+                     alt="Bäcker & Charlie"
+                     class="h-10 md:h-12 w-auto"
+                     width="150"
+                     height="48">
+            </a>
+
+            <button class="btn-book">Book a Table</button>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Fullscreen Hero -->
+        <section class="hero-immersive">
+            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538.jpg"
+                 alt="Bäcker & Charlie café interior"
+                 class="hero-image"
+                 width="1920"
+                 height="1080"
+                 loading="eager">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content container mx-auto px-6">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 opacity-0 animate-fade-in"
+                    style="font-family: 'Space Grotesk', sans-serif;">
+                    AUTHENTIC GERMAN<br>BAKERY IN BANGALORE
+                </h1>
+
+                <p class="text-xl md:text-2xl mb-8 opacity-0 animate-fade-in delay-100">
+                    Experience the warmth of Berlin in the heart of Bengaluru
+                </p>
+
+                <div class="opacity-0 animate-fade-in delay-200">
+                    <a href="#explore" class="btn-book">Scroll to Explore ↓</a>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <i data-lucide="chevron-down" class="w-8 h-8 text-white"></i>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <section class="marquee-container" aria-label="Brand banner">
+            <div class="marquee-content">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                     alt=""
+                     class="inline-block w-12 h-12 mx-8"
+                     width="48"
+                     height="48"
+                     loading="lazy"
+                     aria-hidden="true">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                     alt=""
+                     class="inline-block w-12 h-12 mx-8"
+                     width="48"
+                     height="48"
+                     loading="lazy"
+                     aria-hidden="true">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                     alt=""
+                     class="inline-block w-12 h-12 mx-8"
+                     width="48"
+                     height="48"
+                     loading="lazy"
+                     aria-hidden="true">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="explore" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                    <div class="order-2 md:order-1">
+                        <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO.webp"
+                             alt="Charlie the Bear mascot"
+                             class="w-full h-auto rounded-2xl shadow-2xl"
+                             width="600"
+                             height="600"
+                             loading="lazy">
+                    </div>
+
+                    <div class="order-1 md:order-2">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Meet Bäcker & Charlie</h2>
+
+                        <p class="text-xl text-gray-600 mb-6 leading-relaxed">
+                            Bäcker & Charlie is more than just a name – it's an idea, a bridge between two vibrant cities.
+                        </p>
+
+                        <div class="space-y-4 mb-8">
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">"Bäcker"</h3>
+                                <p class="text-gray-600">
+                                    Means baker in German, reflecting our commitment to authentic German baking traditions passed down through generations.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">"Charlie"</h3>
+                                <p class="text-gray-600">
+                                    Represents a bear, symbolizing Berlin's spirit of friendship, warmth, and the joy of bringing people together.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="#menu" class="btn-link">
+                            Read Our Full Story
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Product -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Today's Fresh Bakes</h2>
+                    <p class="text-xl text-gray-600">Handcrafted every morning with love</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Featured Product -->
+                    <article class="hero-product">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812a_item_1170452_1759928150849_jc_pretzel.png"
+                             alt="Traditional German Pretzel"
+                             class="hero-product-image"
+                             width="600"
+                             height="500"
+                             loading="lazy">
+                        <div class="p-8">
+                            <h3 class="text-3xl font-bold mb-4">German Pretzel</h3>
+                            <p class="text-lg text-gray-600 mb-6">
+                                Our signature pretzel, baked fresh every morning. Crispy golden crust with a soft, chewy interior. The taste of Berlin in every bite.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-4xl font-bold text-red-600">₹160</span>
+                                <button class="btn-book">Order Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Signature Items List -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Signature Items</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-red-50 transition cursor-pointer">
+                                <div class="text-4xl">🥨</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold">Brötchen</h4>
+                                    <p class="text-sm text-gray-600">Traditional German rolls</p>
+                                </div>
+                                <span class="font-bold text-red-600">₹80</span>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-red-50 transition cursor-pointer">
+                                <div class="text-4xl">🥐</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold">Berliner</h4>
+                                    <p class="text-sm text-gray-600">Fluffy filled pastry</p>
+                                </div>
+                                <span class="font-bold text-red-600">₹120</span>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-red-50 transition cursor-pointer">
+                                <div class="text-4xl">🍞</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold">Focaccia</h4>
+                                    <p class="text-sm text-gray-600">Olive & rosemary</p>
+                                </div>
+                                <span class="font-bold text-red-600">₹150</span>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-red-50 transition cursor-pointer">
+                                <div class="text-4xl">🥪</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold">Fried Chicken</h4>
+                                    <p class="text-sm text-gray-600">Crispy & fresh</p>
+                                </div>
+                                <span class="font-bold text-red-600">₹250</span>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-red-50 transition cursor-pointer">
+                                <div class="text-4xl">🍳</div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold">Breakfast Board</h4>
+                                    <p class="text-sm text-gray-600">Full German spread</p>
+                                </div>
+                                <span class="font-bold text-red-600">₹450</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 text-center">
+                            <a href="#full-menu" class="btn-link">
+                                See All Items →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Horizontal Scroll Menu -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Café Menu</h2>
+                    <p class="text-gray-600">Scroll to explore our full selection →</p>
+                </div>
+
+                <div class="horizontal-scroll">
+                    <article class="scroll-card">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812e_item_1170517_1759928286815_cheese_bread.png"
+                             alt="Cheese Bread"
+                             width="300"
+                             height="220"
+                             loading="lazy">
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">Käsebrötchen</h3>
+                            <p class="text-sm text-gray-600 mb-3">Cheese bread</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold text-red-600">₹180</span>
+                                <button class="btn-book text-sm px-4 py-2">Add</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scroll-card">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50b0e895be72f19ddccd_item_1170510_1759929396105_Berliner___Rhubarb___Kaffir_Lime.png"
+                             alt="Berliner"
+                             width="300"
+                             height="220"
+                             loading="lazy">
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">Berliner</h3>
+                            <p class="text-sm text-gray-600 mb-3">Rhubarb & Kaffir Lime</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold text-red-600">₹120</span>
+                                <button class="btn-book text-sm px-4 py-2">Add</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scroll-card">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb6161b228f735a32dc_item_1170490_1759928822212_Fried_Chicken_AF_.png"
+                             alt="Fried Chicken"
+                             width="300"
+                             height="220"
+                             loading="lazy">
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">Fried Chicken</h3>
+                            <p class="text-sm text-gray-600 mb-3">On fresh bread</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold text-red-600">₹250</span>
+                                <button class="btn-book text-sm px-4 py-2">Add</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scroll-card">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb5161b228f735a32ab_item_1170436_1759929038717_caprese.png"
+                             alt="Focaccia"
+                             width="300"
+                             height="220"
+                             loading="lazy">
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">Caprese Focaccia</h3>
+                            <p class="text-sm text-gray-600 mb-3">Fresh mozzarella</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold text-red-600">₹220</span>
+                                <button class="btn-book text-sm px-4 py-2">Add</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scroll-card">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                             alt="Focaccia"
+                             width="300"
+                             height="220"
+                             loading="lazy">
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">Olive Focaccia</h3>
+                            <p class="text-sm text-gray-600 mb-3">With rosemary</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold text-red-600">₹150</span>
+                                <button class="btn-book text-sm px-4 py-2">Add</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scroll-card">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4ebec1483f176ac29d39_item_1170437_1759929760986_rose.png"
+                             alt="Rose Pistachio"
+                             width="300"
+                             height="220"
+                             loading="lazy">
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">Rose Pistachio</h3>
+                            <p class="text-sm text-gray-600 mb-3">Delicate pastry</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold text-red-600">₹180</span>
+                                <button class="btn-book text-sm px-4 py-2">Add</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visit Us -->
+        <section class="py-20 bg-gray-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Visit Our Café</h2>
+                    <p class="text-xl text-gray-300">Experience German café culture in Bangalore</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <article class="info-card bg-white text-gray-900">
+                        <i data-lucide="map-pin" class="w-12 h-12 mx-auto mb-4 text-red-600"></i>
+                        <h3 class="text-xl font-bold mb-2">Location</h3>
+                        <p class="text-gray-600 mb-4">
+                            Cox Town<br>
+                            Bangalore, Karnataka<br>
+                            India
+                        </p>
+                        <a href="#" class="btn-link">Get Directions →</a>
+                    </article>
+
+                    <article class="info-card bg-white text-gray-900">
+                        <i data-lucide="clock" class="w-12 h-12 mx-auto mb-4 text-red-600"></i>
+                        <h3 class="text-xl font-bold mb-2">Hours</h3>
+                        <p class="text-gray-600 mb-4">
+                            Monday - Sunday<br>
+                            7:00 AM - 7:00 PM<br>
+                            Fresh bakes all day
+                        </p>
+                        <a href="#" class="btn-link">Book a Table →</a>
+                    </article>
+
+                    <article class="info-card bg-white text-gray-900">
+                        <i data-lucide="phone" class="w-12 h-12 mx-auto mb-4 text-red-600"></i>
+                        <h3 class="text-xl font-bold mb-2">Contact</h3>
+                        <p class="text-gray-600 mb-4">
+                            Call: +91 XXX XXX XXXX<br>
+                            Email: hello@baecker.in<br>
+                            Follow us on social
+                        </p>
+                        <a href="tel:+91XXXXXXXXXX" class="btn-link">Call Us →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black text-white text-center">
+        <div class="flex justify-center gap-6 mb-4">
+            <a href="#" class="hover:text-red-400 transition" aria-label="Instagram">
+                <i data-lucide="instagram" class="w-6 h-6"></i>
+            </a>
+            <a href="#" class="hover:text-red-400 transition" aria-label="Facebook">
+                <i data-lucide="facebook" class="w-6 h-6"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Bäcker & Charlie. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // Navbar scroll
+        const nav = document.querySelector('.minimal-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

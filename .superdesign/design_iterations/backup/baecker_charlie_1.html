@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bäcker & Charlie - Authentic German Breakfast</title>
+    <meta name="description" content="Authentic German bakery in Cox Town, Bangalore. Fresh Pretzels, Brötchen & Croissants daily.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856861a53e53dcd1e0d017b_favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="baecker_charlie_theme.css">
+
+    <style>
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+
+        @keyframes skeleton {
+            0%, 100% { background-color: var(--muted); }
+            50% { background-color: var(--secondary); }
+        }
+
+        /* Utility Classes */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background: var(--foreground);
+            padding: 1.5rem 0;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Navbar Scroll Effect */
+        .navbar-scrolled {
+            background-color: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Product Card Hover */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Video Section */
+        .video-section {
+            position: relative;
+            overflow: hidden;
+            background: var(--muted);
+        }
+
+        .video-controls {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .video-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .video-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        /* Link Underline Effect */
+        .link-hover {
+            position: relative;
+            display: inline-block;
+        }
+
+        .link-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.2s ease;
+        }
+
+        .link-hover:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Typography */
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 8rem);
+            line-height: 0.9;
+            font-weight: 700;
+        }
+
+        /* Decorative Elements */
+        .decorative-icon {
+            opacity: 0;
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        /* Responsive Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .product-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center">
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png"
+                         alt="Bäcker & Charlie Logo"
+                         class="h-12 md:h-16 w-auto">
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="link-hover font-medium text-lg">HOME</a>
+                    <a href="#menu" class="link-hover font-medium text-lg">MENU</a>
+                    <a href="#team" class="link-hover font-medium text-lg">TEAM</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden">
+        <div class="container mx-auto px-6 py-20">
+            <button id="close-menu" class="absolute top-6 right-6">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="flex flex-col space-y-6">
+                <a href="#" class="text-2xl font-medium">HOME</a>
+                <a href="#menu" class="text-2xl font-medium">MENU</a>
+                <a href="#team" class="text-2xl font-medium">TEAM</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 md:pt-40 pb-20 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl md:text-3xl font-light mb-6 opacity-0 animate-fade-in-up">From</h2>
+            <h1 class="hero-title opacity-0 animate-fade-in-up delay-200" style="font-family: 'Space Grotesk', sans-serif;">
+                BERLIN to BENGALURU
+            </h1>
+            <div class="mt-12 opacity-0 animate-scale-in delay-400">
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68580854d8e79fd51a05acc9_PRIMARY%20LOGOTYPE-1.png"
+                     alt="Bäcker & Charlie"
+                     class="mx-auto w-64 md:w-96 h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Berlin Intro Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin.png"
+                     alt="Berlin"
+                     class="mx-auto w-full max-w-2xl h-auto mb-12 opacity-0 animate-fade-in">
+
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 opacity-0 animate-fade-in-up delay-200">
+                    Authentic German Breakfast. Baked in Mumbai.
+                </h2>
+
+                <p class="text-xl md:text-2xl text-gray-600 opacity-0 animate-fade-in-up delay-400">
+                    Pretzels, Brötchen & Croissants – fresh out of the oven every morning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section py-20 relative">
+        <div class="video-controls">
+            <div class="video-btn" id="pause-btn">
+                <i data-lucide="pause" class="w-6 h-6"></i>
+            </div>
+            <div class="video-btn" id="play-btn">
+                <i data-lucide="play" class="w-6 h-6"></i>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6">
+            <div class="relative">
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538.jpg"
+                     alt="Bakery Interior"
+                     class="w-full h-auto rounded-lg">
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                     alt="Decorative Element"
+                     class="absolute top-4 right-4 w-32 h-32 opacity-50 animate-float">
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">Welcome to Bäcker & Charlie!</h2>
+
+                <p class="text-xl text-gray-600 mb-12">
+                    We're a cozy neighborhood bakery and café in Cox Town, Bangalore, serving authentic German artisanal baked goods.
+                </p>
+
+                <h3 class="text-3xl font-bold mb-6">Our Mission</h3>
+
+                <p class="text-xl text-gray-600 mb-12">
+                    We aim to bring people together with honest food and an authentic café experience that keeps them coming back for the unique taste they can only find here.
+                </p>
+
+                <!-- Decorative Icons -->
+                <div class="flex justify-center items-center gap-12 mt-16">
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED.png"
+                         alt="Wheat"
+                         class="w-24 h-24 decorative-icon animate-float delay-200">
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED.png"
+                         alt="Charlie Bear"
+                         class="w-24 h-24 decorative-icon animate-float delay-400">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="marquee-container">
+        <div class="marquee-content">
+            <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                 alt="Lightning"
+                 class="inline-block w-12 h-12 mx-8">
+            <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+            <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                 alt="Lightning"
+                 class="inline-block w-12 h-12 mx-8">
+            <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+            <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                 alt="Lightning"
+                 class="inline-block w-12 h-12 mx-8">
+            <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+        </div>
+    </section>
+
+    <!-- Meet Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Meet Bäcker & Charlie</h2>
+
+                    <p class="text-xl text-gray-600 mb-6">
+                        Bäcker & Charlie is more than just a name – it's an idea.
+                    </p>
+
+                    <p class="text-lg text-gray-600 mb-4">
+                        "Bäcker" means baker in German, reflecting our commitment to authentic German baking traditions.
+                    </p>
+
+                    <p class="text-lg text-gray-600">
+                        "Charlie" represents a bear, symbolizing Berlin's spirit of friendship, warmth, and connection.
+                    </p>
+                </div>
+
+                <div>
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO.webp"
+                         alt="Charlie the Bear"
+                         class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="menu" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Products</h2>
+                <p class="text-xl text-gray-600">Discover our authentic German baked goods</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4ebec1483f176ac29d39_item_1170437_1759929760986_rose.png"
+                             alt="Bon Fiction - A Rose In Pistachio Skies"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Bon Fiction - A Rose In Pistachio Skies (g)</h3>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Paniermehl"
+                             alt="Paniermehl - Breadcrumbs"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Paniermehl - Breadcrumbs</h3>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Rose"
+                             alt="Rosé - Mountain Bee"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Rosé - Mountain Bee</h3>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Aloha+Ananas"
+                             alt="Aloha Ananas - Mountain Bee"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Aloha Ananas - Mountain Bee</h3>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Arka+ABC"
+                             alt="Arka's ABC"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Arka's ABC</h3>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Valencia+Orange"
+                             alt="Arka's Valencia Orange"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Arka's Valencia Orange</h3>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Refresher"
+                             alt="Classic refresher"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Classic refresher made with</h3>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Berliner"
+                             alt="Berliner - Hazelnut Schokolade"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Berliner - Hazelnut Schokolade</h3>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Schokolade"
+                             alt="Berliner - Schokolade"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Berliner - Schokolade</h3>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Invented"
+                             alt="Invented in"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Invented in</h3>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Marmelade"
+                             alt="Berliner - Marmelade"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Berliner - Marmelade</h3>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50b0e895be72f19ddccd_item_1170510_1759929396105_Berliner___Rhubarb___Kaffir_Lime.png"
+                             alt="Berliner - Rhubarb & Kaffir Lime"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Berliner - Rhubarb & Kaffir Lime</h3>
+                    </div>
+                </div>
+
+                <!-- Product 13 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb5161b228f735a32ab_item_1170436_1759929038717_caprese.png"
+                             alt="Chicken Meatloaf Sandwich"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Chicken Meatloaf Sandwich (Cheese Bread)</h3>
+                    </div>
+                </div>
+
+                <!-- Product 14 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb5161b228f735a32ab_item_1170436_1759929038717_caprese.png"
+                             alt="Zaatar Chicken"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Zaatar Chicken, On Sauerteigbrotchen</h3>
+                    </div>
+                </div>
+
+                <!-- Product 15 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb6161b228f735a32dc_item_1170490_1759928822212_Fried_Chicken_AF_.png"
+                             alt="Fried Chicken AF!"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Fried Chicken AF!</h3>
+                    </div>
+                </div>
+
+                <!-- Product 16 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb6161b228f735a32e3_item_1170489_1759929073367_beef.png"
+                             alt="The Beef"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">The Beef, On Sauerteigbrotchen</h3>
+                    </div>
+                </div>
+
+                <!-- Product 17 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb5161b228f735a32ab_item_1170436_1759929038717_caprese.png"
+                             alt="Caprese-Insalata Focaccia"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Caprese-Insalata Focaccia</h3>
+                    </div>
+                </div>
+
+                <!-- Product 18 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Meatloaf"
+                             alt="Chicken Meatloaf"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Chicken Meatloaf -</h3>
+                    </div>
+                </div>
+
+                <!-- Product 19 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Meatloaf"
+                             alt="Chicken Meatloaf -g"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Chicken Meatloaf -g</h3>
+                    </div>
+                </div>
+
+                <!-- Product 20 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Bacon"
+                             alt="Rashers Bacon"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Rashers Bacon</h3>
+                    </div>
+                </div>
+
+                <!-- Product 21 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Hotdog"
+                             alt="Chicken Hotdog"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Chicken Hotdog -</h3>
+                    </div>
+                </div>
+
+                <!-- Product 22 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Hotdog"
+                             alt="Chicken Hotdog -g"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Chicken Hotdog -g</h3>
+                    </div>
+                </div>
+
+                <!-- Product 23 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Bockwurst"
+                             alt="Pork Bockwurst"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Pork Bockwurst-</h3>
+                    </div>
+                </div>
+
+                <!-- Product 24 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Bockwurst"
+                             alt="Pork Bockwurst-g"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Pork Bockwurst-g</h3>
+                    </div>
+                </div>
+
+                <!-- Product 25 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                             alt="Olive & Rosemary Focaccia"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Olive & Rosemary Focaccia</h3>
+                    </div>
+                </div>
+
+                <!-- Product 26 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Pretzel"
+                             alt="Chicken Ragu Pretzel"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Chicken Ragu Pretzel</h3>
+                    </div>
+                </div>
+
+                <!-- Product 27 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                             alt="German Breakfast Board"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">German Breakfast Board</h3>
+                    </div>
+                </div>
+
+                <!-- Product 28 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Baguette"
+                             alt="Baguette"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Baguette</h3>
+                    </div>
+                </div>
+
+                <!-- Product 29 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/400x400/F5E6D3/8B4513?text=Pretzel"
+                             alt="Wild Shrooms & Blue Cheese Pretzel"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Wild Shrooms & Blue Cheese Pretzel</h3>
+                    </div>
+                </div>
+
+                <!-- Product 30 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812e_item_1170517_1759928286815_cheese_bread.png"
+                             alt="Kasebrotchen (Cheese Bread)"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Käsebrotchen (Cheese Bread)</h3>
+                    </div>
+                </div>
+
+                <!-- Product 31 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812a_item_1170452_1759928150849_jc_pretzel.png"
+                             alt="Jalapeno & Cheese Pretzel"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Jalapeno & Cheese Pretzel</h3>
+                    </div>
+                </div>
+
+                <!-- Product 32 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b509b7465aea6dc5f0dd6_item_1170463_1759928172412_em_3pcs.png"
+                             alt="English Muffins (pcs)"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">English Muffins (pcs)</h3>
+                    </div>
+                </div>
+
+                <!-- Product 33 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                             alt="Mini Salted Pretzel - Party Pack (pcs)"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Mini Salted Pretzel - Party Pack (pcs)</h3>
+                    </div>
+                </div>
+
+                <!-- Product 34 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dce_item_1172207_1760082905645_1_3.png"
+                             alt="Eggs Florentine - Carrot & Spinach"
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Eggs Florentine - Carrot & Spinach</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68569402aae4ad43b0d81dce_B%26C-%20STICKER%20OR%20BADGE__B%26C-%20STICKER%20OR%20BADGE.png"
+                 alt="Bäcker & Charlie Badge"
+                 class="mx-auto w-32 h-32 mb-8 hover:rotate-12 transition-transform duration-300">
+
+            <div class="mt-8">
+                <a href="https://webflow.com" target="_blank" class="inline-flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
+                    <img src="https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-icon-d2.89e12c322e.svg" alt="Webflow" class="w-4 h-4">
+                    <img src="https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-text-d2.c82cec3b78.svg" alt="Made in Webflow" class="h-4">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+
+        mobileMenuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Video Controls (Placeholder functionality)
+        const pauseBtn = document.getElementById('pause-btn');
+        const playBtn = document.getElementById('play-btn');
+
+        pauseBtn?.addEventListener('click', () => {
+            console.log('Video paused');
+            // Add video pause logic here
+        });
+
+        playBtn?.addEventListener('click', () => {
+            console.log('Video playing');
+            // Add video play logic here
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.product-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.4s ease-out ${index * 0.06}s`;
+            observer.observe(card);
+        });
+
+        // Prefers Reduced Motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('[class*="animate-"]').forEach(el => {
+                el.style.animation = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

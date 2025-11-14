@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo-Brutalism Hero - Bäcker & Charlie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --primary: #D84343;
+            --secondary: #FFE066;
+            --accent: #00D9FF;
+            --dark: #2C1810;
+            --cream: #F5E6D3;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* NEO-BRUTALISM STYLE */
+        .hero-brutalist {
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: var(--cream);
+        }
+
+        /* Massive Typography */
+        .brutal-headline {
+            font-weight: 900;
+            font-size: clamp(4rem, 15vw, 14rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+            color: var(--dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        .brutal-headline span {
+            display: block;
+        }
+
+        .word-berlin {
+            color: var(--primary);
+            text-shadow: 8px 8px 0px var(--dark);
+        }
+
+        .word-to {
+            color: var(--secondary);
+            text-shadow: 6px 6px 0px var(--dark);
+            font-style: italic;
+            font-size: 0.5em;
+            margin: 0.2em 0;
+        }
+
+        .word-bengaluru {
+            color: var(--accent);
+            text-shadow: 8px 8px 0px var(--dark);
+        }
+
+        /* Brutal Boxes */
+        .brutal-box {
+            background: white;
+            border: 6px solid var(--dark);
+            box-shadow: 12px 12px 0px var(--dark);
+            padding: 2.5rem;
+            position: relative;
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+
+        .brutal-box:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 16px 16px 0px var(--dark);
+        }
+
+        .brutal-box-2 {
+            transform: rotate(2deg);
+        }
+
+        .brutal-box-2:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* CTA Button - Super Bold */
+        .btn-brutal {
+            background: var(--primary);
+            color: white;
+            border: 5px solid var(--dark);
+            box-shadow: 8px 8px 0px var(--dark);
+            padding: 1.5rem 3rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-brutal:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0px var(--dark);
+        }
+
+        .btn-brutal:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px var(--dark);
+        }
+
+        /* Floating Elements */
+        .float-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-1 {
+            top: 10%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            border: 6px solid var(--dark);
+            transform: rotate(15deg);
+            animation-delay: 0s;
+        }
+
+        .float-2 {
+            bottom: 15%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            background: var(--accent);
+            border: 6px solid var(--dark);
+            border-radius: 50%;
+            animation-delay: 2s;
+        }
+
+        .float-3 {
+            top: 40%;
+            right: 5%;
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            border: 6px solid var(--dark);
+            transform: rotate(-20deg);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
+        /* Grid Pattern Background */
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--dark) 2px, transparent 2px),
+                linear-gradient(90deg, var(--dark) 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        /* Image with Brutal Border */
+        .brutal-image {
+            border: 8px solid var(--dark);
+            box-shadow: 16px 16px 0px var(--primary);
+            transform: rotate(3deg);
+            transition: all 0.3s ease;
+        }
+
+        .brutal-image:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 20px 20px 0px var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .brutal-headline {
+                font-size: clamp(3rem, 12vw, 8rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-brutalist">
+        <!-- Grid Background -->
+        <div class="grid-bg"></div>
+
+        <!-- Floating Elements -->
+        <div class="float-element float-1"></div>
+        <div class="float-element float-2"></div>
+        <div class="float-element float-3"></div>
+
+        <div class="container mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Typography -->
+                <div>
+                    <h1 class="brutal-headline">
+                        <span class="word-berlin">BERLIN</span>
+                        <span class="word-to">to</span>
+                        <span class="word-bengaluru">BENGALURU</span>
+                    </h1>
+
+                    <div class="brutal-box mt-12">
+                        <p class="text-2xl font-bold mb-4">AUTHENTIC GERMAN BAKERY</p>
+                        <p class="text-lg mb-6">Fresh Pretzels, Brötchen & Croissants. Zero BS. Just Good Bread.</p>
+                        <a href="#menu" class="btn-brutal">SEE MENU →</a>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="hidden lg:block">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80"
+                         alt="Fresh German Bread"
+                         class="brutal-image w-full h-auto"
+                         width="800"
+                         height="600"
+                         loading="eager">
+                </div>
+            </div>
+
+            <!-- Bottom Info Boxes -->
+            <div class="grid md:grid-cols-3 gap-8 mt-20">
+                <div class="brutal-box">
+                    <p class="font-mono font-bold text-xl mb-2">📍 LOCATION</p>
+                    <p class="text-lg">Cox Town, Bangalore</p>
+                </div>
+                <div class="brutal-box brutal-box-2">
+                    <p class="font-mono font-bold text-xl mb-2">⏰ HOURS</p>
+                    <p class="text-lg">7 AM - 7 PM Daily</p>
+                </div>
+                <div class="brutal-box">
+                    <p class="font-mono font-bold text-xl mb-2">🥨 FRESH</p>
+                    <p class="text-lg">Baked Every Morning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

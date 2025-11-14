@@ -1,0 +1,49 @@
+/* CSS Variables - Exakt nach Webflow Original aus DevTools */
+:root {
+  /* Colors - Exakt aus DevTools */
+  --color-scheme-1--background: #fff5e4;
+  --color-scheme-1--text: #000;
+  --color-scheme-1--foreground: #fffaf1;
+  --color-scheme-1--border: #00000026;
+  --color-scheme-1--accent: #000;
+  
+  --_primitives---colors--terracotta: #e66b5b;
+  --_primitives---colors--terracotta-light: #ed978c;
+  --_primitives---colors--terracotta-lighter: #fae1de;
+  --_primitives---colors--terracotta-lightest: #fcf0ee;
+  --_primitives---colors--terracotta-dark: #b85548;
+  --_primitives---colors--terracotta-darker: #5c2a24;
+  --_primitives---colors--terracotta-darkest: #45201b;
+  
+  --_primitives---colors--grandis: #ffd07b;
+  --_primitives---colors--grandis-light: #ffdea2;
+  --_primitives---colors--grandis-lighter: #fff5e4;
+  --_primitives---colors--grandis-lightest: #fffaf1;
+  --_primitives---colors--grandis-dark: #cca662;
+  --_primitives---colors--grandis-darker: #665331;
+  --_primitives---colors--grandis-darkest: #4c3e24;
+  
+  --color-background: rgb(255, 245, 228);
+  --color-text: rgb(0, 0, 0);
+  --color-white: rgb(255, 255, 255);
+  
+  /* Typography */
+  --font-heading: "Alrightsans 4", Arial, sans-serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+  
+  /* Container */
+  --container-max-width: 1200px;
+  --container-large-max-width: 1400px;
+  
+  /* Transitions */
+  --transition-base: all 0.3s ease;
+}
+

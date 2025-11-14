@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Editorial Hero - Bäcker & Charlie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --primary: #D84343;
+            --dark: #2C1810;
+            --cream: #F5E6D3;
+            --off-white: #FAF8F5;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--off-white);
+        }
+
+        /* MAGAZINE EDITORIAL STYLE - Kinfolk/Vogue inspired */
+        .hero-magazine {
+            min-height: 100vh;
+            background: var(--off-white);
+        }
+
+        /* Large Format Image */
+        .magazine-hero-image {
+            height: 85vh;
+            width: 100%;
+            object-fit: cover;
+            filter: contrast(1.1) saturate(1.1);
+        }
+
+        /* Overlay Content */
+        .magazine-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(44,24,16,0.9), transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 4rem 2rem;
+        }
+
+        /* Issue Number - Editorial Detail */
+        .issue-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* Massive Serif Headline */
+        .magazine-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 700;
+            line-height: 0.95;
+            color: white;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        /* Deck/Subtitle */
+        .magazine-deck {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-style: italic;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        /* Byline */
+        .byline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+
+        /* Pull Quote Style */
+        .pull-quote {
+            border-left: 4px solid var(--primary);
+            padding-left: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pull-quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-style: italic;
+            line-height: 1.3;
+            color: var(--dark);
+        }
+
+        .pull-quote-attribution {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-top: 1rem;
+        }
+
+        /* CTA - Minimalist Button */
+        .btn-editorial {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 3rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-editorial:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        /* Content Section */
+        .editorial-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        /* Dropcap */
+        .dropcap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 0.8;
+            float: left;
+            margin: 0.1em 0.1em 0 0;
+            color: var(--primary);
+        }
+
+        /* Grid Layout */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .editorial-grid {
+                grid-template-columns: 1.5fr 1fr;
+            }
+        }
+
+        .editorial-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        .editorial-image {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <article class="hero-magazine">
+        <!-- Hero Image Section -->
+        <section class="relative">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1600&q=80"
+                 alt="Artisan bread making"
+                 class="magazine-hero-image"
+                 width="1600"
+                 height="900"
+                 loading="eager">
+
+            <!-- Overlay Content -->
+            <div class="magazine-overlay">
+                <div class="container mx-auto max-w-6xl">
+                    <p class="issue-number">Issue No. 01 — Winter 2025</p>
+
+                    <h1 class="magazine-headline">
+                        From Berlin<br>
+                        to Bengaluru
+                    </h1>
+
+                    <p class="magazine-deck">
+                        A journey of authentic German baking traditions, handcrafted daily in the heart of India
+                    </p>
+
+                    <p class="byline">By Bäcker & Charlie / Cox Town, Bangalore</p>
+
+                    <a href="#story" class="btn-editorial">Read the Full Story</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Content -->
+        <section id="story" class="editorial-content">
+            <div class="editorial-grid">
+                <!-- Text Column -->
+                <div>
+                    <p class="editorial-text dropcap">
+                        Every morning at 4 AM, when Bangalore is still asleep, our ovens come alive. The scent of fresh bread fills Cox Town's streets—a smell that transcends borders, cultures, and time zones. This is more than a bakery. It's a bridge between two cities, two continents, two worlds.
+                    </p>
+
+                    <p class="editorial-text mt-6">
+                        Traditional German baking isn't just about following recipes. It's about understanding the soul of the dough, the rhythm of fermentation, the patience required for perfection. Every pretzel we twist, every Brötchen we shape, carries with it centuries of Berlin craftsmanship.
+                    </p>
+
+                    <div class="pull-quote">
+                        <p class="pull-quote-text">
+                            "We don't just bake bread. We bake memories, traditions, and the warmth of home."
+                        </p>
+                        <p class="pull-quote-attribution">— Bäcker & Charlie</p>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1608198399988-38e59f7c9752?w=800&q=80"
+                         alt="Traditional pretzel"
+                         class="editorial-image"
+                         width="800"
+                         height="1000"
+                         loading="lazy">
+
+                    <p class="text-sm text-gray-500 mt-4 uppercase tracking-wider">
+                        Traditional German Pretzel — Photographed in our Cox Town kitchen
+                    </p>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-16">
+                <a href="#menu"
+                   class="inline-block bg-red-600 text-white px-12 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-red-700 transition">
+                    Experience Our Story
+                </a>
+            </div>
+        </section>
+    </article>
+</body>
+</html>

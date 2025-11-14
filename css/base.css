@@ -1,0 +1,78 @@
+/* Base Styles */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-large {
+  max-width: var(--container-large-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.padding-global {
+  padding: 4rem 0;
+}
+
+.padding-section-large {
+  padding: 6rem 0;
+}
+
+.max-width-medium {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.margin-small {
+  margin-bottom: 1rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.heading-style-h1 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.heading-style-h1.hero.above {
+  font-family: "Alrightsans 4", Arial, sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  letter-spacing: 10px !important;
+  color: rgb(255, 255, 255) !important;
+  line-height: 38.4px !important;
+  margin: 0 !important;
+}
+
+.heading-style-h1.hero.sub {
+  font-family: "Alrightsans 4", Arial, sans-serif !important;
+  font-size: 48px !important;
+  font-weight: 700 !important;
+  color: rgb(255, 255, 255) !important;
+  line-height: 57.6px !important;
+  letter-spacing: normal !important;
+  margin: 0 !important;
+}
+
+.text-color-white {
+  color: var(--color-white) !important;
+}
+
+.text-color-white h1,
+.text-color-white h2,
+.text-color-white h3 {
+  color: var(--color-white) !important;
+}
+

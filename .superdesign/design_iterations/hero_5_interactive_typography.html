@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Typography Hero - Bäcker & Charlie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --primary: #D84343;
+            --dark: #2C1810;
+            --cream: #F5E6D3;
+            --yellow: #FFD93D;
+            --teal: #00BFA6;
+        }
+
+        * {
+            cursor: none !important;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* CUSTOM CURSOR */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(216, 67, 67, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        /* INTERACTIVE HERO */
+        .interactive-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background Grid */
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(216, 67, 67, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(216, 67, 67, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* KINETIC TYPOGRAPHY */
+        .kinetic-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: clamp(4rem, 12vw, 12rem);
+            line-height: 0.95;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 2rem;
+        }
+
+        .word {
+            display: inline-block;
+            position: relative;
+            padding: 0 0.2em;
+        }
+
+        .char {
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            color: white;
+            text-shadow: 0 0 20px rgba(216, 67, 67, 0.5);
+        }
+
+        .char:hover {
+            transform: translateY(-20px) scale(1.2) rotate(5deg);
+            color: var(--primary);
+            text-shadow:
+                0 0 30px var(--primary),
+                0 0 60px var(--primary),
+                0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Magnetic effect on hover */
+        .char.magnetic {
+            transform: scale(1.1);
+            color: var(--yellow);
+        }
+
+        /* SUBTITLE */
+        .interactive-subtitle {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: var(--cream);
+            text-align: center;
+            max-width: 800px;
+            margin: 2rem 0;
+            opacity: 0.9;
+            position: relative;
+            z-index: 10;
+        }
+
+        .interactive-subtitle .highlight {
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-subtitle .highlight:hover {
+            color: var(--yellow);
+            transform: scale(1.05);
+        }
+
+        .interactive-subtitle .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .interactive-subtitle .highlight:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* CTA BUTTON */
+        .interactive-cta {
+            margin-top: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .magnetic-button {
+            background: var(--primary);
+            color: white;
+            padding: 1.75rem 4rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 100px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(216, 67, 67, 0.4);
+        }
+
+        .magnetic-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, var(--yellow), var(--teal));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .magnetic-button:hover::before {
+            opacity: 1;
+        }
+
+        .magnetic-button span {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .magnetic-button:hover span {
+            transform: scale(1.1);
+        }
+
+        .magnetic-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(216, 67, 67, 0.6);
+        }
+
+        /* FLOATING ELEMENTS */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            pointer-events: none;
+            transition: transform 0.3s ease;
+        }
+
+        .float-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .float-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--yellow);
+            bottom: 15%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .float-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--teal);
+            top: 60%;
+            left: 15%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        /* GLITCH EFFECT */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .glitch:hover::before {
+            animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            color: var(--primary);
+            z-index: -1;
+        }
+
+        .glitch:hover::after {
+            animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+            color: var(--teal);
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0% {
+                transform: translate(0);
+                opacity: 0;
+            }
+            20% {
+                transform: translate(-3px, 3px);
+                opacity: 1;
+            }
+            40% {
+                transform: translate(-3px, -3px);
+                opacity: 1;
+            }
+            60% {
+                transform: translate(3px, 3px);
+                opacity: 1;
+            }
+            80% {
+                transform: translate(3px, -3px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glitch-2 {
+            0% {
+                transform: translate(0);
+                opacity: 0;
+            }
+            20% {
+                transform: translate(3px, 3px);
+                opacity: 1;
+            }
+            40% {
+                transform: translate(3px, -3px);
+                opacity: 1;
+            }
+            60% {
+                transform: translate(-3px, 3px);
+                opacity: 1;
+            }
+            80% {
+                transform: translate(-3px, -3px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(0);
+                opacity: 0;
+            }
+        }
+
+        /* INFO TAGS */
+        .info-tags {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(216, 67, 67, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
+
+            .custom-cursor,
+            .custom-cursor-follower {
+                display: none;
+            }
+
+            .char:hover {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Floating Elements -->
+    <div class="floating-element float-1"></div>
+    <div class="floating-element float-2"></div>
+    <div class="floating-element float-3"></div>
+
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+
+    <!-- Interactive Hero -->
+    <section class="interactive-hero">
+        <div class="kinetic-title" id="kinetic-title">
+            <div class="word glitch" data-text="BERLIN">
+                <span class="char">B</span><span class="char">E</span><span class="char">R</span><span class="char">L</span><span class="char">I</span><span class="char">N</span>
+            </div>
+            <br>
+            <div class="word" style="color: var(--yellow);">
+                <span class="char">×</span>
+            </div>
+            <br>
+            <div class="word glitch" data-text="BANGALORE">
+                <span class="char">B</span><span class="char">A</span><span class="char">N</span><span class="char">G</span><span class="char">A</span><span class="char">L</span><span class="char">O</span><span class="char">R</span><span class="char">E</span>
+            </div>
+        </div>
+
+        <p class="interactive-subtitle">
+            Where <span class="highlight">authentic German baking</span> meets
+            <span class="highlight">Indian hospitality</span>.
+            Fresh from our ovens at <span class="highlight">4 AM daily</span>.
+        </p>
+
+        <div class="interactive-cta">
+            <a href="#menu" class="magnetic-button">
+                <span>Experience the Magic →</span>
+            </a>
+        </div>
+
+        <div class="info-tags">
+            <div class="tag">🥨 Traditional Pretzels</div>
+            <div class="tag">🥐 Fresh Croissants</div>
+            <div class="tag">🍞 Artisan Bread</div>
+            <div class="tag">☕ Specialty Coffee</div>
+        </div>
+    </section>
+
+    <script>
+        // CUSTOM CURSOR
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.custom-cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px)`;
+        });
+
+        // Smooth follower animation
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        // KINETIC TYPOGRAPHY - Magnetic Effect
+        const chars = document.querySelectorAll('.char');
+
+        chars.forEach(char => {
+            char.addEventListener('mouseenter', () => {
+                // Add magnetic class to nearby chars
+                const index = Array.from(chars).indexOf(char);
+                if (chars[index - 1]) chars[index - 1].classList.add('magnetic');
+                if (chars[index + 1]) chars[index + 1].classList.add('magnetic');
+            });
+
+            char.addEventListener('mouseleave', () => {
+                // Remove magnetic class
+                chars.forEach(c => c.classList.remove('magnetic'));
+            });
+        });
+
+        // FLOATING ELEMENTS - Follow Cursor
+        const floatingElements = document.querySelectorAll('.floating-element');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            floatingElements.forEach((el, index) => {
+                const speed = (index + 1) * 20;
+                const xMove = (x - 0.5) * speed;
+                const yMove = (y - 0.5) * speed;
+                el.style.transform = `translate(${xMove}px, ${yMove}px)`;
+            });
+        });
+
+        // MAGNETIC BUTTON
+        const magneticButton = document.querySelector('.magnetic-button');
+
+        magneticButton.addEventListener('mousemove', (e) => {
+            const rect = magneticButton.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            magneticButton.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+        });
+
+        magneticButton.addEventListener('mouseleave', () => {
+            magneticButton.style.transform = 'translate(0, 0) scale(1)';
+        });
+
+        // Cursor size changes on hover
+        const interactiveElements = document.querySelectorAll('.char, .highlight, .magnetic-button, .tag');
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '40px';
+                cursor.style.height = '40px';
+                follower.style.width = '60px';
+                follower.style.height = '60px';
+            });
+
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                follower.style.width = '40px';
+                follower.style.height = '40px';
+            });
+        });
+
+        // ENTRANCE ANIMATION
+        window.addEventListener('load', () => {
+            chars.forEach((char, index) => {
+                setTimeout(() => {
+                    char.style.opacity = '0';
+                    char.style.transform = 'translateY(100px)';
+
+                    setTimeout(() => {
+                        char.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                        char.style.opacity = '1';
+                        char.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
+        });
+    </script>
+</body>
+</html>

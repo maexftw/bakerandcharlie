@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asymmetric Grid Hero - Bäcker & Charlie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --primary: #D84343;
+            --dark: #2C1810;
+            --cream: #F5E6D3;
+            --yellow: #FFD93D;
+            --teal: #00BFA6;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* ASYMMETRIC GRID SYSTEM */
+        .grid-hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, minmax(80px, 1fr));
+            gap: 0;
+            position: relative;
+        }
+
+        /* Grid Sections */
+        .grid-header {
+            grid-column: 1 / 7;
+            grid-row: 1 / 2;
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 30;
+        }
+
+        .grid-title-1 {
+            grid-column: 1 / 8;
+            grid-row: 2 / 5;
+            background: var(--primary);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 20;
+        }
+
+        .grid-image-1 {
+            grid-column: 7 / 13;
+            grid-row: 1 / 6;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .grid-accent {
+            grid-column: 1 / 4;
+            grid-row: 5 / 7;
+            background: var(--yellow);
+            z-index: 25;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .grid-subtitle {
+            grid-column: 4 / 9;
+            grid-row: 5 / 7;
+            background: white;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            z-index: 15;
+        }
+
+        .grid-image-2 {
+            grid-column: 9 / 13;
+            grid-row: 6 / 9;
+            position: relative;
+            overflow: hidden;
+            z-index: 12;
+        }
+
+        .grid-cta {
+            grid-column: 1 / 5;
+            grid-row: 7 / 9;
+            background: var(--teal);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            z-index: 18;
+        }
+
+        .grid-stats {
+            grid-column: 5 / 9;
+            grid-row: 7 / 9;
+            background: var(--dark);
+            color: white;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            z-index: 16;
+        }
+
+        /* Typography */
+        .mega-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            line-height: 0.9;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .subtitle-text {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .accent-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 10vw, 10rem);
+            color: var(--dark);
+            line-height: 1;
+            margin: 0;
+        }
+
+        /* Images */
+        .grid-image-1 img,
+        .grid-image-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .grid-image-1:hover img,
+        .grid-image-2:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Geometric Shapes */
+        .circle-accent {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--yellow);
+            top: -100px;
+            right: -100px;
+            z-index: 1;
+        }
+
+        .triangle-accent {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 260px solid rgba(255, 255, 255, 0.1);
+            bottom: -130px;
+            left: 50%;
+            transform: translateX(-50%) rotate(15deg);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: var(--dark);
+            color: white;
+            padding: 1.5rem 3rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 4px solid var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--dark);
+            transform: translateX(8px);
+        }
+
+        /* Stats */
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            color: var(--yellow);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .grid-hero {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 0;
+            }
+
+            .grid-header {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .grid-image-1 {
+                grid-column: 1;
+                grid-row: 2;
+                min-height: 400px;
+            }
+
+            .grid-title-1 {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            .grid-accent {
+                grid-column: 1;
+                grid-row: 4;
+            }
+
+            .grid-subtitle {
+                grid-column: 1;
+                grid-row: 5;
+            }
+
+            .grid-image-2 {
+                grid-column: 1;
+                grid-row: 6;
+                min-height: 400px;
+            }
+
+            .grid-cta {
+                grid-column: 1;
+                grid-row: 7;
+            }
+
+            .grid-stats {
+                grid-column: 1;
+                grid-row: 8;
+            }
+        }
+
+        /* Entrance Animations */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .grid-title-1 {
+            animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .grid-image-1 {
+            animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .grid-subtitle {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+        }
+
+        .grid-cta {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s backwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-hero">
+        <!-- Header -->
+        <div class="grid-header">
+            <div>
+                <p class="text-sm uppercase tracking-widest opacity-60">Cox Town · Bangalore</p>
+                <h3 class="text-2xl font-bold mt-1">Bäcker & Charlie</h3>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+                <a href="#menu" class="hover:text-yellow-400 transition-colors">Menu</a>
+                <a href="#about" class="hover:text-yellow-400 transition-colors">About</a>
+                <a href="#contact" class="hover:text-yellow-400 transition-colors">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Main Title Section -->
+        <div class="grid-title-1">
+            <h1 class="mega-title">
+                GERMAN<br>
+                BAKERY<br>
+                IN INDIA
+            </h1>
+            <div class="circle-accent"></div>
+            <div class="triangle-accent"></div>
+        </div>
+
+        <!-- Large Image 1 -->
+        <div class="grid-image-1">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&q=80"
+                 alt="Fresh artisan bread display"
+                 loading="lazy">
+        </div>
+
+        <!-- Accent Number -->
+        <div class="grid-accent">
+            <p class="accent-number">01</p>
+        </div>
+
+        <!-- Subtitle Section -->
+        <div class="grid-subtitle">
+            <p class="subtitle-text">
+                Authentic Berlin recipes.<br>
+                Fresh every morning.<br>
+                No compromises.
+            </p>
+        </div>
+
+        <!-- Small Image 2 -->
+        <div class="grid-image-2">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80"
+                 alt="Baker working with dough"
+                 loading="lazy">
+        </div>
+
+        <!-- CTA Section -->
+        <div class="grid-cta">
+            <p class="text-2xl font-bold mb-4" style="color: var(--dark);">
+                Start baking<br>at 4 AM daily
+            </p>
+            <a href="#menu" class="cta-button">
+                View Menu →
+            </a>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid-stats">
+            <div class="stat-item">
+                <p class="stat-number">4AM</p>
+                <p class="stat-label">Daily Start</p>
+            </div>
+            <div class="stat-item">
+                <p class="stat-number">100%</p>
+                <p class="stat-label">Fresh Daily</p>
+            </div>
+            <div class="stat-item">
+                <p class="stat-number">0</p>
+                <p class="stat-label">Frozen Dough</p>
+            </div>
+            <div class="stat-item">
+                <p class="stat-number">∞</p>
+                <p class="stat-label">Love & Care</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

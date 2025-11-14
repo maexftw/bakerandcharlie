@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bäcker &amp; Charlie — Authentic German bakery experience in Bangalore.">
+  <title>Bäcker &amp; Charlie | SuperDesign Clone</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind + Flowbite -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.0.0/dist/flowbite.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      --color-primary: #8b4513;
+      --color-primary-dark: #5a2d0a;
+      --color-secondary: #f4a460;
+      --color-accent: #fcd075;
+      --color-cream: #fff8f0;
+      --color-warm-gray: #f3e7dd;
+      --color-text: #2c1810;
+      --color-text-soft: #6b4423;
+      --color-border: rgba(139, 69, 19, 0.16);
+      --shadow-soft: 0 24px 60px rgba(26, 14, 5, 0.18);
+      --shadow-card: 0 16px 30px rgba(139, 69, 19, 0.12);
+      --shadow-overlay: inset 0 0 0 1000px rgba(44, 24, 16, 0.35);
+      --radius-lg: 32px;
+      --radius-md: 20px;
+      --radius-sm: 12px;
+      --transition-base: all 240ms ease;
+      --transition-slow: all 380ms ease;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box !important;
+    }
+
+    body {
+      margin: 0 !important;
+      font-family: 'Inter', sans-serif !important;
+      color: var(--color-text) !important;
+      background-color: white !important;
+    }
+
+    a {
+      text-decoration: none !important;
+      color: inherit !important;
+      transition: var(--transition-base) !important;
+    }
+
+    img {
+      display: block !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width)) !important;
+      margin: 0 auto !important;
+    }
+
+    .navbar {
+      position: fixed !important;
+      inset: 0 0 auto 0 !important;
+      z-index: 50 !important;
+      background: rgba(255, 255, 255, 0.92) !important;
+      backdrop-filter: blur(16px) !important;
+      border-bottom: 1px solid rgba(139, 69, 19, 0.08) !important;
+      transition: var(--transition-slow) !important;
+    }
+
+    .navbar.is-scrolled {
+      background: rgba(255, 255, 255, 0.98) !important;
+      border-bottom-color: rgba(139, 69, 19, 0.16) !important;
+      box-shadow: 0 16px 40px rgba(44, 24, 16, 0.12) !important;
+    }
+
+    .nav-content {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 20px 0 !important;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif !important;
+      font-size: clamp(20px, 3vw, 28px) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: var(--color-primary) !important;
+    }
+
+    .nav-menu {
+      display: flex !important;
+      gap: 32px !important;
+      align-items: center !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .nav-menu a {
+      font-family: 'Montserrat', sans-serif !important;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      letter-spacing: 0.12em !important;
+      color: var(--color-text-soft) !important;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible {
+      color: var(--color-primary) !important;
+    }
+
+    .menu-toggle {
+      display: none !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      border: none !important;
+      background: transparent !important;
+      cursor: pointer !important;
+      padding: 6px !important;
+    }
+
+    .menu-toggle span {
+      width: 26px !important;
+      height: 3px !important;
+      background: var(--color-primary) !important;
+      border-radius: 100px !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .hero {
+      position: relative !important;
+      min-height: 100vh !important;
+      display: grid !important;
+      align-items: center !important;
+      isolation: isolate !important;
+    }
+
+    .hero-video {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: -2 !important;
+      overflow: hidden !important;
+    }
+
+    .hero-video video {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .hero-gradient {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: -1 !important;
+      background: linear-gradient(140deg, rgba(44, 24, 16, 0.68), rgba(139, 69, 19, 0.25)) !important;
+    }
+
+    .hero-content {
+      padding: clamp(120px, 18vh, 200px) 0 clamp(140px, 22vh, 240px) !important;
+      color: white !important;
+      text-align: center !important;
+      display: grid !important;
+      gap: 32px !important;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase !important;
+      font-size: clamp(42px, 6.6vw, 90px) !important;
+      margin: 0 auto !important;
+      max-width: 900px !important;
+      line-height: 1.1 !important;
+    }
+
+    .hero-title span:last-child {
+      background: linear-gradient(90deg, #fcd075, #f4a460) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      display: inline-block !important;
+    }
+
+    .hero-description {
+      font-size: clamp(17px, 1.6vw, 20px) !important;
+      line-height: 1.8 !important;
+      max-width: 640px !important;
+      margin: 0 auto !important;
+      color: rgba(255, 255, 255, 0.88) !important;
+    }
+
+    .hero-ctas {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 16px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      padding: 14px 30px !important;
+      border-radius: 999px !important;
+      border: 1px solid transparent !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.06em !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .btn-primary {
+      background: var(--color-primary) !important;
+      color: white !important;
+      box-shadow: var(--shadow-card) !important;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-dark) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12) !important;
+      color: white !important;
+      border-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .scroll-indicator {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.4em !important;
+      color: rgba(255, 255, 255, 0.6) !important;
+      animation: bounce 2.5s ease-in-out infinite !important;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    section {
+      padding: clamp(96px, 11vw, 140px) 0 !important;
+    }
+
+    .section-header {
+      text-align: center !important;
+      margin-bottom: clamp(48px, 7vw, 70px) !important;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif !important;
+      font-size: clamp(36px, 4vw, 54px) !important;
+      margin-bottom: 18px !important;
+    }
+
+    .section-subtitle {
+      font-size: clamp(16px, 1.4vw, 18px) !important;
+      color: var(--color-text-soft) !important;
+      max-width: 680px !important;
+      margin: 0 auto !important;
+      line-height: 1.7 !important;
+    }
+
+    .products-slider {
+      background: var(--color-cream) !important;
+    }
+
+    .slider-shell {
+      position: relative !important;
+      display: grid !important;
+      gap: 32px !important;
+    }
+
+    .slider-track {
+      display: grid !important;
+      grid-auto-flow: column !important;
+      grid-auto-columns: minmax(260px, 320px) !important;
+      gap: 24px !important;
+      overflow-x: scroll !important;
+      scroll-snap-type: x mandatory !important;
+      padding-bottom: 12px !important;
+      scrollbar-width: none !important;
+    }
+
+    .slider-track::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .product-card {
+      background: white !important;
+      border-radius: var(--radius-md) !important;
+      overflow: hidden !important;
+      box-shadow: var(--shadow-card) !important;
+      scroll-snap-align: start !important;
+      display: grid !important;
+      gap: 16px !important;
+      padding-bottom: 24px !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px) !important;
+    }
+
+    .product-card img {
+      width: 100% !important;
+      height: 220px !important;
+      object-fit: cover !important;
+    }
+
+    .product-info {
+      padding: 0 26px !important;
+      display: grid !important;
+      gap: 10px !important;
+    }
+
+    .product-info h3 {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 20px !important;
+      margin: 0 !important;
+    }
+
+    .slider-nav {
+      position: absolute !important;
+      inset: 0 0 0 0 !important;
+      pointer-events: none !important;
+    }
+
+    .slider-button {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      pointer-events: auto !important;
+      border: none !important;
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 999px !important;
+      background: rgba(255, 255, 255, 0.96) !important;
+      box-shadow: 0 16px 40px rgba(44, 24, 16, 0.12) !important;
+      cursor: pointer !important;
+      display: grid !important;
+      place-items: center !important;
+      color: var(--color-primary) !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .slider-button:hover {
+      background: white !important;
+      transform: translateY(-50%) translateX(-2px) !important;
+    }
+
+    .slider-button[data-direction="next"] {
+      right: -24px !important;
+    }
+
+    .slider-button[data-direction="prev"] {
+      left: -24px !important;
+    }
+
+    .scenes-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+      gap: 28px !important;
+    }
+
+    .scene-card {
+      background: white !important;
+      border-radius: var(--radius-md) !important;
+      box-shadow: var(--shadow-card) !important;
+      overflow: hidden !important;
+      display: grid !important;
+    }
+
+    .scene-card h3 {
+      padding: 20px 24px !important;
+      margin: 0 !important;
+      font-size: 20px !important;
+    }
+
+    .location-section {
+      background: var(--color-warm-gray) !important;
+    }
+
+    .location-cards {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+      gap: 24px !important;
+      margin-bottom: 40px !important;
+    }
+
+    .info-card {
+      background: white !important;
+      border-radius: var(--radius-md) !important;
+      padding: 28px !important;
+      box-shadow: var(--shadow-card) !important;
+      display: grid !important;
+      gap: 12px !important;
+    }
+
+    .rating-pill {
+      display: inline-flex !important;
+      gap: 12px !important;
+      align-items: center !important;
+      background: white !important;
+      padding: 10px 18px !important;
+      border-radius: 999px !important;
+      font-weight: 600 !important;
+      margin-top: 22px !important;
+    }
+
+    .highlight-grid {
+      display: grid !important;
+      gap: 22px !important;
+      margin-bottom: 40px !important;
+    }
+
+    .highlight-card {
+      display: grid !important;
+      gap: 10px !important;
+      background: white !important;
+      border-radius: var(--radius-sm) !important;
+      padding: 20px 24px !important;
+      box-shadow: 0 12px 24px rgba(44, 24, 16, 0.08) !important;
+    }
+
+    .location-gallery {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      gap: 24px !important;
+    }
+
+    .gallery-controls {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+      justify-content: center !important;
+      margin-bottom: 32px !important;
+    }
+
+    .filter-pill {
+      border: 1px solid rgba(44, 24, 16, 0.14) !important;
+      border-radius: 999px !important;
+      padding: 10px 18px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.06em !important;
+      font-size: 13px !important;
+      background: white !important;
+      cursor: pointer !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .filter-pill.is-active {
+      background: var(--color-primary) !important;
+      color: white !important;
+      border-color: var(--color-primary) !important;
+      box-shadow: var(--shadow-card) !important;
+    }
+
+    .gallery-grid {
+      display: grid !important;
+      gap: 24px !important;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    }
+
+    .gallery-card {
+      position: relative !important;
+      border-radius: var(--radius-md) !important;
+      overflow: hidden !important;
+      cursor: pointer !important;
+      box-shadow: var(--shadow-card) !important;
+    }
+
+    .gallery-card::after {
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: var(--shadow-overlay) !important;
+      opacity: 0 !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .gallery-card:hover::after {
+      opacity: 1 !important;
+    }
+
+    .gallery-card figcaption {
+      position: absolute !important;
+      inset: auto 0 0 0 !important;
+      padding: 24px !important;
+      color: white !important;
+      z-index: 2 !important;
+      transform: translateY(12px) !important;
+      opacity: 0 !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .gallery-card:hover figcaption {
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+    }
+
+    .about-section {
+      background: var(--color-cream) !important;
+    }
+
+    .about-grid {
+      display: grid !important;
+      gap: 48px !important;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      align-items: start !important;
+    }
+
+    .footer {
+      background: var(--color-primary) !important;
+      color: white !important;
+      padding: 64px 0 32px !important;
+    }
+
+    .footer-grid {
+      display: grid !important;
+      gap: 32px !important;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+      margin-bottom: 48px !important;
+    }
+
+    .lightbox {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(17, 10, 6, 0.88) !important;
+      display: none !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 100 !important;
+    }
+
+    .lightbox.is-open {
+      display: flex !important;
+    }
+
+    .lightbox-content {
+      max-width: min(90vw, 960px) !important;
+      max-height: 80vh !important;
+      position: relative !important;
+      display: grid !important;
+      place-items: center !important;
+    }
+
+    .lightbox-content img {
+      border-radius: var(--radius-md) !important;
+      box-shadow: var(--shadow-soft) !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      position: absolute !important;
+      top: 20px !important;
+      background: rgba(255, 255, 255, 0.92) !important;
+      color: var(--color-primary) !important;
+      border: none !important;
+      border-radius: 999px !important;
+      width: 44px !important;
+      height: 44px !important;
+      display: grid !important;
+      place-items: center !important;
+      cursor: pointer !important;
+      box-shadow: 0 16px 40px rgba(26, 14, 5, 0.18) !important;
+    }
+
+    .lightbox-close {
+      right: 20px !important;
+    }
+
+    .lightbox-nav {
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+
+    .lightbox-prev {
+      left: -60px !important;
+    }
+
+    .lightbox-next {
+      right: -60px !important;
+    }
+
+    .badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.32em !important;
+      color: var(--color-primary) !important;
+      background: rgba(139, 69, 19, 0.08) !important;
+      border-radius: 999px !important;
+      padding: 8px 18px !important;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-menu {
+        position: absolute !important;
+        inset: 100% 24px auto 24px !important;
+        background: white !important;
+        border-radius: 24px !important;
+        padding: 28px 24px !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        box-shadow: 0 20px 50px rgba(26, 14, 5, 0.18) !important;
+        transform-origin: top right !important;
+        transform: scale(0.86) translateY(-12px) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: var(--transition-slow) !important;
+      }
+
+      .nav-menu.is-open {
+        transform: scale(1) translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+
+      .menu-toggle {
+        display: flex !important;
+      }
+
+      .slider-button {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max-width)) !important;
+      }
+
+      .hero-title {
+        letter-spacing: 0.12em !important;
+      }
+
+      .hero-description {
+        text-align: left !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <a class="logo" href="#home">Bäcker &amp; Charlie</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#story">Story</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-video">
+        <video autoplay loop muted playsinline poster="https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f099f07e4716cb6b85e_BACKER_AND_CHARLIE_POSTER.webp">
+          <source src="https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f06e3c2c1b3c976f9ed_BACKER_AND_CHARLIE_2025-transcode.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-gradient"></div>
+      <div class="container hero-content">
+        <div class="badge">From Berlin to Bengaluru</div>
+        <h1 class="hero-title">
+          <span>From</span>
+          <span>Berlin to Bengaluru</span>
+        </h1>
+        <p class="hero-description">
+          Authentic German baking traditions meet Indian warmth. Small-batch pretzels, Berliners, and artisan breads crafted in Cox Town every sunrise.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#menu">
+            Order Now
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12m-6-6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a class="btn btn-secondary" href="#story">Our Story</a>
+        </div>
+        <div class="scroll-indicator">
+          <span>Scroll</span>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14m-7-7l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-slider" id="menu">
+      <div class="container slider-shell">
+        <div class="section-header">
+          <h2 class="section-title">Fresh from our ovens</h2>
+          <p class="section-subtitle">Eight signature bakes we handcraft daily — from sunrise pretzels to slow-fermented sourdough and dessert flights.</p>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-button" data-direction="prev" aria-label="Previous">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="slider-button" data-direction="next" aria-label="Next">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="slider-track" id="productSlider">
+          <!-- Cards injected by JS -->
+        </div>
+        <div class="hero-ctas" style="justify-content: flex-start;">
+          <a class="btn btn-primary" href="#">View full menu</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="behind-scenes">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Handcrafted with love</h2>
+          <p class="section-subtitle">Peek into the midnight mix, early-morning shaping, and joyful rush that make our bakery hum seven days a week.</p>
+        </div>
+        <div class="scenes-grid" id="scenesGrid"></div>
+        <div class="hero-ctas" style="justify-content: center; margin-top: 40px;">
+          <a class="btn btn-primary" href="#experience">Meet our team</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="location-section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Experience Berlin in Bangalore</h2>
+          <p class="section-subtitle">Settle into our European-style café — warm wood, brass accents, vinyl crackle, and the perfume of freshly baked pretzels.</p>
+          <div class="rating-pill">
+            ★★★★★ <span>4.8 on Google Reviews</span>
+          </div>
+        </div>
+
+        <div class="location-cards">
+          <div class="info-card">
+            <h3>Location</h3>
+            <p>Cox Town<br />Bangalore, India</p>
+          </div>
+          <div class="info-card">
+            <h3>Hours</h3>
+            <p>Daily<br />8:00 AM — 8:00 PM</p>
+          </div>
+          <div class="info-card">
+            <h3>Contact</h3>
+            <p>+91 123 456 7890<br />hello@backerandcharlie.in</p>
+          </div>
+        </div>
+
+        <div class="highlight-grid" id="highlightGrid"></div>
+
+        <div class="location-gallery" id="locationGallery"></div>
+
+        <div class="hero-ctas" style="margin-top: 48px; justify-content: center;">
+          <a class="btn btn-primary" href="https://maps.app.goo.gl/7rXf1dPXeT1z4g6K6" target="_blank" rel="noopener noreferrer">Get directions</a>
+          <a class="btn btn-secondary" href="tel:+911234567890">Call us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our gallery</h2>
+          <p class="section-subtitle">
+            Phone-first snapshots, film stills, and editorial footage from our bakers, guests, and artist friends documenting the ritual of bread.
+          </p>
+        </div>
+
+        <div class="gallery-controls" id="galleryFilters">
+          <button class="filter-pill is-active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="pretzels">Pretzels</button>
+          <button class="filter-pill" data-filter="berliners">Berliners</button>
+          <button class="filter-pill" data-filter="sandwiches">Sandwiches</button>
+          <button class="filter-pill" data-filter="sweets">Sweet bakes</button>
+          <button class="filter-pill" data-filter="cafe">Café life</button>
+          <button class="filter-pill" data-filter="craft">Bakery craft</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="about-section" id="story">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <div class="badge">Our Story</div>
+            <h2 class="section-title" style="margin-top: 16px;">Meet Bäcker &amp; Charlie</h2>
+            <p style="line-height: 1.8; color: var(--color-text-soft);">
+              “Bäcker” is the baker. “Charlie” is the bear from the Berlin coat-of-arms. Together, we are a bakery that fuses meticulous German craft with the warmth of Bengaluru hospitality. Every loaf, pretzel twist, Berliner fill, and cold brew pour is done in-house, by humans, with time as the secret ingredient.
+            </p>
+          </div>
+          <div>
+            <div class="badge">Our mission</div>
+            <h2 class="section-title" style="margin-top: 16px;">Bread that builds community</h2>
+            <p style="line-height: 1.8; color: var(--color-text-soft);">
+              Our mission is to be the shared table for the neighborhood — where software engineers meet chai regulars, where travelers taste Berlin, and where the breeze smells like caramelizing pretzels every single morning.
+            </p>
+            <div class="hero-ctas" style="justify-content: flex-start; margin-top: 32px;">
+              <a class="btn btn-primary" href="https://www.instagram.com/backerandcharlie" target="_blank" rel="noopener noreferrer">
+                Follow the bake log
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 16px;">Bäcker &amp; Charlie</h3>
+          <p style="opacity: 0.78; line-height: 1.8;">
+            Authentic German bakery &amp; café<br />
+            Cox Town, Bangalore
+          </p>
+        </div>
+        <div>
+          <h4 style="font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;">Visit</h4>
+          <p style="opacity: 0.78; line-height: 1.8;">8 AM — 8 PM daily<br />Walk-ins &amp; pre-orders welcome</p>
+        </div>
+        <div>
+          <h4 style="font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;">Contact</h4>
+          <p style="opacity: 0.78; line-height: 1.8;">hello@backerandcharlie.in<br />+91 123 456 7890</p>
+        </div>
+        <div>
+          <h4 style="font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;">Follow</h4>
+          <a style="opacity: 0.78;" href="https://www.instagram.com/backerandcharlie" target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
+        </div>
+      </div>
+      <div style="opacity: 0.64; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-align: center;">
+        © 2025 Bäcker &amp; Charlie. Crafted daily in Bangalore.
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+        ×
+      </button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
+        ‹
+      </button>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
+        ›
+      </button>
+      <img src="" alt="" id="lightboxImage" />
+    </div>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    const toggleMenu = () => {
+      navMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open');
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('is-scrolled');
+      } else {
+        navbar.classList.remove('is-scrolled');
+      }
+      navMenu.classList.remove('is-open');
+      menuToggle.classList.remove('is-open');
+    });
+
+    const productSlider = document.getElementById('productSlider');
+    const sliderPrev = document.querySelector('[data-direction="prev"]');
+    const sliderNext = document.querySelector('[data-direction="next"]');
+
+    const products = [
+      {
+        title: 'Classic Bavarian Pretzel',
+        description: '72-hour ferment, hand-twisted, lacquered with alpine salt.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f089abf07cb11097ac9_pretzels.jpg'
+      },
+      {
+        title: 'Chocolate Cream Berliner',
+        description: 'Piped to order with Valrhona ganache & cocoa nib dust.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f0834d6ab9bdc8425d9_berliner.jpg'
+      },
+      {
+        title: 'Pretzel Breakfast Sandwich',
+        description: 'Soft egg scramble, applewood bacon, raclette, pretzel bun.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f08b3f8a2f9ef77005f_sandwich.jpg'
+      },
+      {
+        title: 'Pretzel Charcuterie Board',
+        description: 'Trio of pretzels, house-made dips, cured meats, pickles.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f083622e4bf3df4f517_charcuterie.jpg'
+      },
+      {
+        title: 'Classic Chocolate Layer Cake',
+        description: 'Five layers, 70% chocolate cremeux, ganache ribbons.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f088700647daa086068_chocolate-cake.jpg'
+      },
+      {
+        title: 'Citrus Olive Oil Cake',
+        description: 'Sicilian olive oil, candied citrus, mascarpone cloud.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f0847005ea8b4a23f38_citrus-cake.jpg'
+      },
+      {
+        title: 'Berliner & Iced Latte',
+        description: 'Our afternoon ritual — bittersweet coffee & sugared dough.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f082cf94fdc6b6d2f23_berliner-latte.jpg'
+      },
+      {
+        title: 'Sourdough Vienna Loaf',
+        description: 'Malted wheat levain, blistered crust, walnut crumble.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f08756d5d81ae5a8909_bread.jpg'
+      }
+    ];
+
+    const renderProducts = () => {
+      productSlider.innerHTML = products.map(
+        (product) => `
+          <article class="product-card">
+            <img src="${product.image}" alt="${product.title}" loading="lazy" />
+            <div class="product-info">
+              <h3>${product.title}</h3>
+              <p style="color: var(--color-text-soft); line-height: 1.6;">${product.description}</p>
+            </div>
+          </article>
+        `
+      ).join('');
+    };
+
+    const scrollSlider = (direction) => {
+      const card = productSlider.querySelector('.product-card');
+      if (!card) return;
+      const scrollAmount = card.getBoundingClientRect().width + 24;
+      productSlider.scrollBy({
+        left: direction === 'next' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+      });
+    };
+
+    sliderPrev.addEventListener('click', () => scrollSlider('prev'));
+    sliderNext.addEventListener('click', () => scrollSlider('next'));
+
+    const scenes = [
+      {
+        title: 'Traditional Techniques',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f081fa4ae6d2d942109_pretzel-knot.jpg'
+      },
+      {
+        title: 'Midnight Mix',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f0880871427af6e32f4_midnight.jpg'
+      },
+      {
+        title: 'Production Excellence',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f088a4f7eb6749aa5a8_pretzel-line.jpg'
+      },
+      {
+        title: 'Hospitality Crew',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f083feaacd45ce3b522_team.jpg'
+      },
+      {
+        title: 'Fresh Cooling Racks',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f0896668456d58bcb29_cooling.jpg'
+      },
+      {
+        title: 'Berlin Soul',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f089a50d8e9a91b2f69_berlin.jpg'
+      }
+    ];
+
+    const highlights = [
+      {
+        title: 'Morning Rituals',
+        description: 'Sunrise pretzels, salted caramel cold brew, and locally milled croissants from 8:00 AM.'
+      },
+      {
+        title: 'Weekend Brunch Club',
+        description: 'Pretzel sandwich flights, Berliner tastings, and vinyl sets on Saturdays.'
+      },
+      {
+        title: 'Community Table',
+        description: 'Twelve-seat farmhouse table with board games every Friday at 6 PM.'
+      }
+    ];
+
+    const locationShots = [
+      {
+        title: 'Welcoming counter',
+        description: 'Seasonal pastry lineup, pour-over bar, and friendly crew.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f081a1cc967816aea0d_counter.jpg'
+      },
+      {
+        title: 'Cozy dining',
+        description: 'Soft lighting, layered wood, Bauhaus-inspired seating.',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f08b3a1c339ffb0844c_seating.jpg'
+      }
+    ];
+
+    const galleryItems = [
+      {
+        title: 'Salted pretzel stack',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f08350a0d2f6159bb10_gallery-pretzel1.jpg',
+        category: 'pretzels'
+      },
+      {
+        title: 'Berliner close-up',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f08a173137540f6b093_gallery-berliner1.jpg',
+        category: 'berliners'
+      },
+      {
+        title: 'Latte art & crumble',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f086fefa2cb67acace3_gallery-coffee.jpg',
+        category: 'cafe'
+      },
+      {
+        title: 'Pretzel sandwich duo',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f08dc266c59e354a4f1_gallery-sandwich.jpg',
+        category: 'sandwiches'
+      },
+      {
+        title: 'Pastry case detail',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f081c798e1e8a3082d2_gallery-case.jpg',
+        category: 'sweets'
+      },
+      {
+        title: 'Bench proofing',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f0847f6780b574ef704_gallery-craft1.jpg',
+        category: 'craft'
+      },
+      {
+        title: 'Dough lamination',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f084abbfbe281ad6c24_gallery-craft2.jpg',
+        category: 'craft'
+      },
+      {
+        title: 'Outdoor signage',
+        image: 'https://assets-global.website-files.com/672a5f8a8cd67f7f5f51c0b3/67500f08dff525758aa7e0db_gallery-cafe2.jpg',
+        category: 'cafe'
+      }
+    ];
+
+    const renderScenes = () => {
+      const grid = document.getElementById('scenesGrid');
+      grid.innerHTML = scenes.map(
+        (scene) => `
+          <article class="scene-card">
+            <img src="${scene.image}" alt="${scene.title}" loading="lazy" />
+            <h3>${scene.title}</h3>
+          </article>
+        `
+      ).join('');
+    };
+
+    const renderHighlights = () => {
+      const grid = document.getElementById('highlightGrid');
+      grid.innerHTML = highlights.map(
+        (item) => `
+          <article class="highlight-card">
+            <strong style="font-family: 'Montserrat', sans-serif; letter-spacing: 0.08em; text-transform: uppercase;">${item.title}</strong>
+            <p style="color: var(--color-text-soft); line-height: 1.7;">${item.description}</p>
+          </article>
+        `
+      ).join('');
+    };
+
+    const renderLocationGallery = () => {
+      const grid = document.getElementById('locationGallery');
+      grid.innerHTML = locationShots.map(
+        (item) => `
+          <article class="scene-card">
+            <img src="${item.image}" alt="${item.title}" loading="lazy" />
+            <div style="padding: 22px 24px;">
+              <h3 style="margin-bottom: 8px;">${item.title}</h3>
+              <p style="color: var(--color-text-soft); line-height: 1.7;">${item.description}</p>
+            </div>
+          </article>
+        `
+      ).join('');
+    };
+
+    const galleryGrid = document.getElementById('galleryGrid');
+    const filters = document.querySelectorAll('.filter-pill');
+    let currentFilter = 'all';
+
+    const renderGallery = () => {
+      const filtered = currentFilter === 'all'
+        ? galleryItems
+        : galleryItems.filter((item) => item.category === currentFilter);
+
+      galleryGrid.innerHTML = filtered.map(
+        (item, index) => `
+          <figure class="gallery-card" data-index="${index}" data-category="${item.category}">
+            <img src="${item.image}" alt="${item.title}" loading="lazy" />
+            <figcaption>
+              <strong style="font-family: 'Playfair Display', serif; font-size: 20px;">${item.title}</strong>
+            </figcaption>
+          </figure>
+        `
+      ).join('');
+    };
+
+    filters.forEach((filter) => {
+      filter.addEventListener('click', () => {
+        filters.forEach((btn) => btn.classList.remove('is-active'));
+        filter.classList.add('is-active');
+        currentFilter = filter.dataset.filter;
+        renderGallery();
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    let currentGalleryIndex = 0;
+
+    const openLightbox = (index) => {
+      const items = currentFilter === 'all'
+        ? galleryItems
+        : galleryItems.filter((item) => item.category === currentFilter);
+      if (!items[index]) return;
+      currentGalleryIndex = index;
+      lightboxImage.src = items[index].image;
+      lightboxImage.alt = items[index].title;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    };
+
+    const navigateLightbox = (direction) => {
+      const items = currentFilter === 'all'
+        ? galleryItems
+        : galleryItems.filter((item) => item.category === currentFilter);
+      currentGalleryIndex = (currentGalleryIndex + direction + items.length) % items.length;
+      lightboxImage.src = items[currentGalleryIndex].image;
+      lightboxImage.alt = items[currentGalleryIndex].title;
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+    lightboxNext.addEventListener('click', () => navigateLightbox(1));
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (event.key === 'Escape') {
+        closeLightbox();
+      } else if (event.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+      } else if (event.key === 'ArrowRight') {
+        navigateLightbox(1);
+      }
+    });
+
+    const attachGalleryHandlers = () => {
+      const cards = document.querySelectorAll('.gallery-card');
+      cards.forEach((card, index) => {
+        card.addEventListener('click', () => openLightbox(index));
+      });
+    };
+
+    const init = () => {
+      renderProducts();
+      renderScenes();
+      renderHighlights();
+      renderLocationGallery();
+      renderGallery();
+      attachGalleryHandlers();
+      lucide.createIcons();
+    };
+
+    init();
+
+    const galleryObserver = new MutationObserver(() => {
+      attachGalleryHandlers();
+    });
+
+    galleryObserver.observe(galleryGrid, { childList: true });
+  </script>
+</body>
+</html>
+
+
+
+
+

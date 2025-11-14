@@ -1,0 +1,331 @@
+/* Navigation - Exakt aus DevTools */
+.navbar1_menu {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  padding: 1rem 2rem !important;
+  background: var(--color-background) !important;
+}
+
+.navbar1_menu-links {
+  display: flex !important;
+  gap: 2rem !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar1_link {
+  color: rgb(0, 0, 0) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 14px !important;
+  transition: var(--transition-base) !important;
+}
+
+.navbar1_link:hover {
+  opacity: 0.7 !important;
+}
+
+/* Hero Section - Exakt aus DevTools */
+.section_header5 {
+  position: relative !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  border-bottom: 1.77778px solid rgb(230, 107, 91) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+.header5_background-image-wrapper {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -1 !important;
+}
+
+.header5_background-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.image-overlay-layer {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.header5_content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.div-block-6 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header42_content {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.header42_content img {
+  max-width: 468px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Video Section */
+.video-section {
+  position: relative;
+  width: 100%;
+  padding: 4rem 0;
+}
+
+.video-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.video-controls button {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.video-controls button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+/* Content Sections */
+.content-section {
+  padding: 6rem 0;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section-text {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Two Column Layout */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Berlin/Bengaluru Section */
+.location-bridge {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+.location-item {
+  text-align: center;
+}
+
+.location-item h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 5px;
+}
+
+.location-item img {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-item {
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.product-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Section 3 - Welcome & Mission - Exakt aus DevTools */
+.section-3 {
+  padding: 20px 0px !important;
+  background-color: rgb(255, 208, 123) !important;
+  display: block !important;
+}
+
+/* Marquee Section - Exakt aus DevTools */
+#marquee.sec {
+  padding: 32px 0px !important;
+  background-color: rgb(255, 208, 123) !important;
+  display: flex !important;
+  overflow: clip !important;
+}
+
+.scroller {
+  display: flex !important;
+  overflow: clip !important;
+}
+
+.scroller-line {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  white-space: nowrap !important;
+}
+
+.scroller-text {
+  font-size: 48px !important;
+  font-weight: 700 !important;
+  color: rgb(0, 0, 0) !important;
+  font-family: "Alrightsans 4", Arial, sans-serif !important;
+}
+
+/* Products Section - Exakt aus DevTools */
+.section_product1 {
+  padding: 60px 0px !important;
+  margin: 0px 5% !important;
+  background-color: rgb(255, 245, 228) !important;
+}
+
+/* Video Section */
+.section_header42 {
+  padding: 40px 0px !important;
+  background-color: rgb(255, 245, 228) !important;
+}
+
+.header42_component {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 2rem !important;
+  max-width: var(--container-large-max-width) !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+.background-video-2 {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 400px !important;
+}
+
+.background-video-2 video {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar1_menu {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .heading-style-h1.hero.above {
+    font-size: 24px !important;
+    letter-spacing: 5px !important;
+  }
+  
+  .heading-style-h1.hero.sub {
+    font-size: 32px !important;
+  }
+  
+  .header42_component {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .container,
+  .container-large {
+    padding: 0 1rem !important;
+  }
+}
+

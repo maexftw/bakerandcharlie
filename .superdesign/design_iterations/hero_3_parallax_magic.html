@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Magic Hero - Bäcker & Charlie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --primary: #D84343;
+            --dark: #2C1810;
+            --cream: #F5E6D3;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #1a1410;
+            overflow-x: hidden;
+        }
+
+        /* PARALLAX SCROLL HERO */
+        .parallax-hero {
+            height: 200vh;
+            position: relative;
+            background: #1a1410;
+        }
+
+        .parallax-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Layers */
+        .parallax-layer {
+            position: absolute;
+            inset: 0;
+            will-change: transform;
+        }
+
+        .layer-1 {
+            background: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&q=80') center/cover;
+            filter: brightness(0.4);
+        }
+
+        .layer-2 {
+            background: radial-gradient(circle at 50% 50%, transparent 0%, #1a1410 100%);
+        }
+
+        /* Text Layers */
+        .text-layer {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            will-change: transform, opacity;
+        }
+
+        .text-berlin {
+            top: 20%;
+            font-size: clamp(4rem, 15vw, 18rem);
+            color: var(--primary);
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .text-to {
+            top: 45%;
+            font-size: clamp(2rem, 8vw, 8rem);
+            color: var(--cream);
+            font-style: italic;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .text-bengaluru {
+            top: 65%;
+            font-size: clamp(4rem, 15vw, 18rem);
+            color: #FFE066;
+            opacity: 0;
+            transform: translateY(-100px);
+        }
+
+        /* Floating Product Images */
+        .floating-product {
+            position: absolute;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            will-change: transform;
+            opacity: 0;
+        }
+
+        .product-1 {
+            width: 300px;
+            top: 15%;
+            left: 10%;
+        }
+
+        .product-2 {
+            width: 250px;
+            top: 50%;
+            right: 15%;
+        }
+
+        .product-3 {
+            width: 350px;
+            bottom: 10%;
+            left: 15%;
+        }
+
+        /* CTA Section */
+        .cta-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 4rem 2rem;
+            background: linear-gradient(to top, #1a1410, transparent);
+            text-align: center;
+            opacity: 0;
+        }
+
+        .btn-parallax {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem 4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(216, 67, 67, 0.3);
+        }
+
+        .btn-parallax:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(216, 67, 67, 0.5);
+        }
+
+        /* Info Section After Scroll */
+        .info-section {
+            background: var(--cream);
+            padding: 6rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .info-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .info-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .info-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .info-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parallax Hero -->
+    <section class="parallax-hero">
+        <div class="parallax-sticky" id="parallax-container">
+            <!-- Background Layer -->
+            <div class="parallax-layer layer-1" data-speed="0.5"></div>
+            <div class="parallax-layer layer-2"></div>
+
+            <!-- Text Layers -->
+            <div class="text-layer text-berlin" id="text-berlin">BERLIN</div>
+            <div class="text-layer text-to" id="text-to">to</div>
+            <div class="text-layer text-bengaluru" id="text-bengaluru">BENGALURU</div>
+
+            <!-- Floating Products -->
+            <img src="https://images.unsplash.com/photo-1608198399988-38e59f7c9752?w=400&q=80"
+                 alt="Pretzel"
+                 class="floating-product product-1"
+                 id="product-1"
+                 loading="lazy">
+            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&q=80"
+                 alt="Croissants"
+                 class="floating-product product-2"
+                 id="product-2"
+                 loading="lazy">
+            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&q=80"
+                 alt="Fresh bread"
+                 class="floating-product product-3"
+                 id="product-3"
+                 loading="lazy">
+
+            <!-- CTA Overlay -->
+            <div class="cta-overlay" id="cta-overlay">
+                <p class="text-white text-xl mb-6 opacity-80">Authentic German Bakery in Bangalore</p>
+                <a href="#experience" class="btn-parallax">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section" id="experience">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-number">01</div>
+                <h3 class="info-title">Fresh Daily</h3>
+                <p class="info-text">
+                    Every morning at 4 AM, we start from scratch. No frozen dough, no shortcuts. Just pure, authentic German baking.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-number">02</div>
+                <h3 class="info-title">Traditional Recipes</h3>
+                <p class="info-text">
+                    Berlin's baking secrets brought to Bangalore. Each recipe perfected over generations, now crafted for you.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-number">03</div>
+                <h3 class="info-title">Local Love</h3>
+                <p class="info-text">
+                    Cox Town's neighborhood bakery. We're not just baking bread—we're building community, one loaf at a time.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-number">04</div>
+                <h3 class="info-title">Zero Compromises</h3>
+                <p class="info-text">
+                    If it's not perfect, it doesn't leave our kitchen. That's our promise to you every single day.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Parallax Scroll Effects
+        let scrollProgress = 0;
+
+        window.addEventListener('scroll', () => {
+            const heroHeight = document.querySelector('.parallax-hero').offsetHeight;
+            const scrollY = window.scrollY;
+            scrollProgress = Math.min(scrollY / heroHeight, 1);
+
+            // Text animations
+            const textBerlin = document.getElementById('text-berlin');
+            const textTo = document.getElementById('text-to');
+            const textBengaluru = document.getElementById('text-bengaluru');
+
+            if (scrollProgress < 0.3) {
+                // Berlin appears
+                textBerlin.style.opacity = scrollProgress / 0.3;
+                textBerlin.style.transform = `translateY(${100 - (scrollProgress / 0.3) * 100}px)`;
+            } else if (scrollProgress < 0.6) {
+                // "to" appears & Berlin stays
+                textBerlin.style.opacity = 1;
+                textBerlin.style.transform = 'translateY(0)';
+
+                const toProgress = (scrollProgress - 0.3) / 0.3;
+                textTo.style.opacity = toProgress;
+                textTo.style.transform = `scale(${0.5 + toProgress * 0.5})`;
+            } else {
+                // Bengaluru appears & all visible
+                textBerlin.style.opacity = 1;
+                textBerlin.style.transform = 'translateY(0)';
+                textTo.style.opacity = 1;
+                textTo.style.transform = 'scale(1)';
+
+                const bengaluruProgress = (scrollProgress - 0.6) / 0.4;
+                textBengaluru.style.opacity = bengaluruProgress;
+                textBengaluru.style.transform = `translateY(-${100 - bengaluruProgress * 100}px)`;
+            }
+
+            // Products fade in
+            const product1 = document.getElementById('product-1');
+            const product2 = document.getElementById('product-2');
+            const product3 = document.getElementById('product-3');
+
+            if (scrollProgress > 0.4) {
+                const productProgress = (scrollProgress - 0.4) / 0.3;
+                product1.style.opacity = productProgress;
+                product1.style.transform = `translateX(${-50 + productProgress * 50}px)`;
+
+                product2.style.opacity = productProgress;
+                product2.style.transform = `translateX(${50 - productProgress * 50}px)`;
+
+                product3.style.opacity = productProgress;
+                product3.style.transform = `translateY(${50 - productProgress * 50}px)`;
+            }
+
+            // CTA appears
+            const ctaOverlay = document.getElementById('cta-overlay');
+            if (scrollProgress > 0.7) {
+                const ctaProgress = (scrollProgress - 0.7) / 0.3;
+                ctaOverlay.style.opacity = ctaProgress;
+            }
+        });
+    </script>
+</body>
+</html>

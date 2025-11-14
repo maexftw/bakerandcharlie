@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bäcker & Charlie - Authentic German Bakery in Bangalore | Fresh Pretzels, Brötchen & Croissants</title>
+    <meta name="description" content="Authentic German bakery & café in Cox Town, Bangalore. Fresh Pretzels, Brötchen & Croissants baked daily. Experience Berlin's bakery tradition in India.">
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="German bakery Bangalore, Pretzels Bangalore, Brötchen, Croissants, Cox Town cafe, authentic German breakfast">
+    <meta name="author" content="Bäcker & Charlie">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://baecker-charlie.com/">
+    <meta property="og:title" content="Bäcker & Charlie - Authentic German Bakery in Bangalore">
+    <meta property="og:description" content="Fresh Pretzels, Brötchen & Croissants baked daily. From Berlin to Bengaluru.">
+    <meta property="og:image" content="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://baecker-charlie.com/">
+    <meta name="twitter:title" content="Bäcker & Charlie - Authentic German Bakery in Bangalore">
+    <meta name="twitter:description" content="Fresh Pretzels, Brötchen & Croissants baked daily. From Berlin to Bengaluru.">
+    <meta name="twitter:image" content="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856861a53e53dcd1e0d017b_favicon.png">
+    <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856861a53e53dcd1e0d017b_favicon.png">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.prod.website-files.com">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" as="style">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Critical Inline CSS for Above-the-Fold -->
+    <style>
+        /* Critical CSS - Inline for Performance */
+        :root {
+            --primary: #D84343;
+            --primary-dark: #B93535;
+            --secondary: #F5E6D3;
+            --accent: #8B4513;
+            --background: #FAF8F5;
+            --foreground: #2C1810;
+            --muted: #E8DED0;
+            --muted-foreground: #6B5D52;
+            --border: #D4C4B0;
+            --card: #FFFFFF;
+            --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Space Grotesk', 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--foreground);
+            background-color: var(--background);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Skip to Content Link - Accessibility */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+            font-weight: 600;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* Focus Visible Styles - Accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, var(--muted) 25%, var(--secondary) 50%, var(--muted) 75%);
+            background-size: 200% 100%;
+            animation: skeleton 1.5s ease-in-out infinite;
+        }
+
+        @keyframes skeleton {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Image Loading State */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        img[loading="lazy"] {
+            min-height: 200px;
+            background: var(--muted);
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons - Defer Loading -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="baecker_charlie_theme.css">
+
+    <!-- Schema.org Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Bäcker & Charlie",
+      "description": "Authentic German bakery and café in Cox Town, Bangalore, serving fresh Pretzels, Brötchen & Croissants daily.",
+      "url": "https://baecker-charlie.com",
+      "telephone": "+91-XXX-XXX-XXXX",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Cox Town",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "servesCuisine": "German, Bakery",
+      "priceRange": "$$",
+      "image": "https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png"
+    }
+    </script>
+
+    <style>
+        /* Additional Styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background: var(--foreground);
+            padding: 1.5rem 0;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Navbar Scroll Effect */
+        .navbar-scrolled {
+            background-color: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Product Card Hover */
+        .product-card {
+            transition: all 0.3s ease;
+            min-height: 350px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Video Section */
+        .video-section {
+            position: relative;
+            overflow: hidden;
+            background: var(--muted);
+        }
+
+        .video-controls {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .video-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .video-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        /* Link Underline Effect */
+        .link-hover {
+            position: relative;
+            display: inline-block;
+        }
+
+        .link-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.2s ease;
+        }
+
+        .link-hover:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Typography */
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 8rem);
+            line-height: 0.9;
+            font-weight: 700;
+        }
+
+        /* Responsive Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Touch Targets - Minimum 44x44px */
+        button, a, .clickable {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Category Filter */
+        .category-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            min-height: 44px;
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Load More Button */
+        .load-more-btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            min-height: 48px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .load-more-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(216, 67, 67, 0.3);
+        }
+
+        /* Scroll to Top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 50;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .scroll-to-top.visible {
+            display: flex;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(216, 67, 67, 0.3);
+        }
+
+        /* Error State */
+        .error-state {
+            padding: 2rem;
+            text-align: center;
+            background: #FEE2E2;
+            border: 2px solid #EF4444;
+            border-radius: 0.5rem;
+            color: #991B1B;
+        }
+
+        /* Image Error Fallback */
+        img.error {
+            background: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img.error::before {
+            content: '🥐';
+            font-size: 3rem;
+        }
+
+        /* Price Badge */
+        .price-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            min-height: 48px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(216, 67, 67, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Content - Accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <header>
+        <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="navigation" aria-label="Main navigation">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo with Home Link -->
+                    <a href="#" class="flex items-center" aria-label="Bäcker & Charlie - Home">
+                        <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png"
+                             alt="Bäcker & Charlie Logo - Authentic German Bakery"
+                             class="h-12 md:h-16 w-auto"
+                             width="200"
+                             height="64">
+                    </a>
+
+                    <!-- Navigation Links -->
+                    <div class="hidden md:flex items-center space-x-8" role="menubar">
+                        <a href="#" class="link-hover font-medium text-lg" role="menuitem">HOME</a>
+                        <a href="#menu" class="link-hover font-medium text-lg" role="menuitem">MENU</a>
+                        <a href="#team" class="link-hover font-medium text-lg" role="menuitem">TEAM</a>
+                        <a href="#contact" class="cta-btn">Contact Us</a>
+                    </div>
+
+                    <!-- Mobile Menu Button - Larger Touch Target -->
+                    <button id="mobile-menu-btn"
+                            class="md:hidden p-2"
+                            aria-label="Open mobile menu"
+                            aria-expanded="false"
+                            aria-controls="mobile-menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="container mx-auto px-6 py-20">
+            <button id="close-menu"
+                    class="absolute top-6 right-6"
+                    aria-label="Close mobile menu">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <nav class="flex flex-col space-y-6" role="menubar">
+                <a href="#" class="text-2xl font-medium" role="menuitem">HOME</a>
+                <a href="#menu" class="text-2xl font-medium" role="menuitem">MENU</a>
+                <a href="#team" class="text-2xl font-medium" role="menuitem">TEAM</a>
+                <a href="#contact" class="cta-btn text-center">Contact Us</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="pt-32 md:pt-40 pb-20 text-center" aria-labelledby="hero-title">
+            <div class="container mx-auto px-6">
+                <h2 class="text-2xl md:text-3xl font-light mb-6 opacity-0 animate-fade-in-up">From</h2>
+                <h1 id="hero-title" class="hero-title opacity-0 animate-fade-in-up delay-200" style="font-family: 'Space Grotesk', sans-serif;">
+                    BERLIN to BENGALURU
+                </h1>
+                <div class="mt-12 opacity-0 animate-scale-in delay-400">
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68580854d8e79fd51a05acc9_PRIMARY%20LOGOTYPE-1.png"
+                         alt="Bäcker & Charlie Brand Mark"
+                         class="mx-auto w-64 md:w-96 h-auto"
+                         width="384"
+                         height="200"
+                         loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <!-- Berlin Intro Section -->
+        <section class="py-20 bg-white" aria-labelledby="intro-title">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin.png"
+                         alt="Berlin Brandenburg Gate illustration representing German heritage"
+                         class="mx-auto w-full max-w-2xl h-auto mb-12 opacity-0 animate-fade-in"
+                         width="800"
+                         height="400"
+                         loading="lazy">
+
+                    <h2 id="intro-title" class="text-4xl md:text-5xl font-bold mb-6 opacity-0 animate-fade-in-up delay-200">
+                        Authentic German Breakfast. Baked in Mumbai.
+                    </h2>
+
+                    <p class="text-xl md:text-2xl text-gray-600 opacity-0 animate-fade-in-up delay-400">
+                        Pretzels, Brötchen & Croissants – fresh out of the oven every morning.
+                    </p>
+
+                    <div class="mt-8">
+                        <a href="#menu" class="cta-btn">View Our Menu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section py-20 relative" aria-label="Bakery showcase">
+            <div class="video-controls">
+                <button class="video-btn"
+                        id="pause-btn"
+                        aria-label="Pause video"
+                        type="button">
+                    <i data-lucide="pause" class="w-6 h-6"></i>
+                </button>
+                <button class="video-btn"
+                        id="play-btn"
+                        aria-label="Play video"
+                        type="button">
+                    <i data-lucide="play" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="container mx-auto px-6">
+                <div class="relative">
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538.jpg"
+                         alt="Bäcker & Charlie bakery interior showing fresh baked goods"
+                         class="w-full h-auto rounded-lg"
+                         width="1200"
+                         height="675"
+                         loading="lazy">
+                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                         alt="Decorative lightning bolt icon"
+                         class="absolute top-4 right-4 w-32 h-32 opacity-50 animate-float"
+                         width="128"
+                         height="128"
+                         loading="lazy"
+                         aria-hidden="true">
+                </div>
+            </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="py-20" aria-labelledby="welcome-title">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 id="welcome-title" class="text-4xl md:text-5xl font-bold mb-8">Welcome to Bäcker & Charlie!</h2>
+
+                    <p class="text-xl text-gray-600 mb-12">
+                        We're a cozy neighborhood bakery and café in Cox Town, Bangalore, serving authentic German artisanal baked goods.
+                    </p>
+
+                    <h3 class="text-3xl font-bold mb-6">Our Mission</h3>
+
+                    <p class="text-xl text-gray-600 mb-12">
+                        We aim to bring people together with honest food and an authentic café experience that keeps them coming back for the unique taste they can only find here.
+                    </p>
+
+                    <!-- Decorative Icons -->
+                    <div class="flex justify-center items-center gap-12 mt-16">
+                        <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED.png"
+                             alt="Wheat icon representing fresh ingredients"
+                             class="w-24 h-24 decorative-icon animate-float delay-200"
+                             width="96"
+                             height="96"
+                             loading="lazy">
+                        <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED.png"
+                             alt="Charlie the Bear mascot icon"
+                             class="w-24 h-24 decorative-icon animate-float delay-400"
+                             width="96"
+                             height="96"
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Section -->
+        <section class="marquee-container" aria-label="Brand banner">
+            <div class="marquee-content">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                     alt=""
+                     class="inline-block w-12 h-12 mx-8"
+                     width="48"
+                     height="48"
+                     loading="lazy"
+                     aria-hidden="true">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                     alt=""
+                     class="inline-block w-12 h-12 mx-8"
+                     width="48"
+                     height="48"
+                     loading="lazy"
+                     aria-hidden="true">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BERLIN</span>
+                <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png"
+                     alt=""
+                     class="inline-block w-12 h-12 mx-8"
+                     width="48"
+                     height="48"
+                     loading="lazy"
+                     aria-hidden="true">
+                <span class="text-4xl md:text-6xl font-bold text-white mx-8">BENGALURU</span>
+            </div>
+        </section>
+
+        <!-- Meet Section -->
+        <section class="py-20 bg-white" aria-labelledby="meet-title">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 id="meet-title" class="text-4xl md:text-5xl font-bold mb-6">Meet Bäcker & Charlie</h2>
+
+                        <p class="text-xl text-gray-600 mb-6">
+                            Bäcker & Charlie is more than just a name – it's an idea.
+                        </p>
+
+                        <p class="text-lg text-gray-600 mb-4">
+                            <strong>"Bäcker"</strong> means baker in German, reflecting our commitment to authentic German baking traditions.
+                        </p>
+
+                        <p class="text-lg text-gray-600">
+                            <strong>"Charlie"</strong> represents a bear, symbolizing Berlin's spirit of friendship, warmth, and connection.
+                        </p>
+                    </div>
+
+                    <div>
+                        <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO.webp"
+                             alt="Charlie the Bear mascot representing friendship and warmth"
+                             class="w-full h-auto rounded-lg shadow-lg"
+                             width="600"
+                             height="600"
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="menu" class="py-20" aria-labelledby="menu-title">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 id="menu-title" class="text-4xl md:text-5xl font-bold mb-4">Our Products</h2>
+                    <p class="text-xl text-gray-600">Discover our authentic German baked goods</p>
+                </div>
+
+                <!-- Category Filter - UX Law: Hick's Law -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12" role="tablist" aria-label="Product categories">
+                    <button class="category-btn active" data-category="all" role="tab" aria-selected="true" aria-controls="products">All</button>
+                    <button class="category-btn" data-category="pastries" role="tab" aria-selected="false" aria-controls="products">Pastries</button>
+                    <button class="category-btn" data-category="breads" role="tab" aria-selected="false" aria-controls="products">Breads</button>
+                    <button class="category-btn" data-category="sandwiches" role="tab" aria-selected="false" aria-controls="products">Sandwiches</button>
+                    <button class="category-btn" data-category="beverages" role="tab" aria-selected="false" aria-controls="products">Beverages</button>
+                </div>
+
+                <!-- Products Grid - Miller's Law: Limited to 12 Initially -->
+                <div id="products" class="product-grid" role="tabpanel">
+                    <!-- Product 1 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="pastries">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹180</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4ebec1483f176ac29d39_item_1170437_1759929760986_rose.png"
+                                 alt="Bon Fiction - Rose pistachio pastry with delicate rose flavor"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Bon Fiction - A Rose In Pistachio Skies</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="breads">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹120</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50b0e895be72f19ddccd_item_1170510_1759929396105_Berliner___Rhubarb___Kaffir_Lime.png"
+                                 alt="Berliner pastry filled with rhubarb and kaffir lime"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Berliner - Rhubarb & Kaffir Lime</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="sandwiches">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹250</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb6161b228f735a32dc_item_1170490_1759928822212_Fried_Chicken_AF_.png"
+                                 alt="Fried chicken sandwich on fresh artisan bread"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Fried Chicken AF!</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="sandwiches">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹280</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb6161b228f735a32e3_item_1170489_1759929073367_beef.png"
+                                 alt="The Beef sandwich on sourdough bread"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">The Beef, On Sauerteigbrötchen</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 5 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="sandwiches">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹220</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb5161b228f735a32ab_item_1170436_1759929038717_caprese.png"
+                                 alt="Caprese focaccia with fresh mozzarella and tomatoes"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Caprese-Insalata Focaccia</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 6 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="breads">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹150</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                                 alt="Olive and rosemary focaccia bread"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Olive & Rosemary Focaccia</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 7 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="breads">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹180</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812e_item_1170517_1759928286815_cheese_bread.png"
+                                 alt="Traditional German cheese bread (Käsebrötchen)"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Käsebrötchen (Cheese Bread)</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 8 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="breads">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹160</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b4eb17465aea6dc5e812a_item_1170452_1759928150849_jc_pretzel.png"
+                                 alt="Spicy jalapeño and cheese pretzel"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Jalapeño & Cheese Pretzel</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 9 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="breads">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹140</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b509b7465aea6dc5f0dd6_item_1170463_1759928172412_em_3pcs.png"
+                                 alt="English muffins pack of 3 pieces"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">English Muffins (3 pcs)</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 10 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="breads">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹350</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                                 alt="Mini salted pretzels party pack"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Mini Salted Pretzel - Party Pack</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 11 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="pastries">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹240</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dce_item_1172207_1760082905645_1_3.png"
+                                 alt="Eggs Florentine with carrot and spinach"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">Eggs Florentine - Carrot & Spinach</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+
+                    <!-- Product 12 -->
+                    <article class="product-card bg-white rounded-lg overflow-hidden shadow-md" data-category="breads">
+                        <div class="overflow-hidden relative">
+                            <span class="price-badge">₹450</span>
+                            <img src="https://cdn.prod.website-files.com/6857d7958f37ce5e700769d6/690b50997465aea6dc5f0dcb_item_1170462_1759928467515_Pretzel_2.png"
+                                 alt="German breakfast board with assorted breads and spreads"
+                                 loading="lazy"
+                                 width="400"
+                                 height="250"
+                                 onerror="this.classList.add('error'); this.alt='Product image unavailable';">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-2">German Breakfast Board</h3>
+                            <button class="cta-btn w-full mt-2">Add to Order</button>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button - Miller's Law: Chunking -->
+                <div class="text-center mt-12">
+                    <button id="load-more" class="load-more-btn">
+                        <span>Load More Products</span>
+                        <i data-lucide="chevron-down" class="inline-block ml-2 w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white" aria-labelledby="contact-title">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto text-center">
+                    <h2 id="contact-title" class="text-4xl md:text-5xl font-bold mb-8">Visit Us</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Cox Town, Bangalore<br>
+                        Karnataka, India
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+91XXXXXXXXXX" class="cta-btn">Call Us</a>
+                        <a href="https://goo.gl/maps/example" class="cta-btn" target="_blank" rel="noopener noreferrer">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="team" class="py-20 bg-white" role="contentinfo">
+        <div class="container mx-auto px-6 text-center">
+            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68569402aae4ad43b0d81dce_B%26C-%20STICKER%20OR%20BADGE__B%26C-%20STICKER%20OR%20BADGE.png"
+                 alt="Bäcker & Charlie badge logo"
+                 class="mx-auto w-32 h-32 mb-8 hover:rotate-12 transition-transform duration-300"
+                 width="128"
+                 height="128"
+                 loading="lazy">
+
+            <p class="text-gray-600 mb-4">
+                &copy; 2025 Bäcker & Charlie. All rights reserved.
+            </p>
+
+            <div class="mt-8">
+                <a href="https://webflow.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity"
+                   aria-label="Built with Webflow">
+                    <img src="https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-icon-d2.89e12c322e.svg" alt="" class="w-4 h-4" width="16" height="16" loading="lazy">
+                    <img src="https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-text-d2.c82cec3b78.svg" alt="Made in Webflow" class="h-4" height="16" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top"
+            id="scroll-to-top"
+            aria-label="Scroll to top"
+            type="button">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+
+        mobileMenuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu on link click
+        mobileMenu?.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Video Controls
+        const pauseBtn = document.getElementById('pause-btn');
+        const playBtn = document.getElementById('play-btn');
+
+        pauseBtn?.addEventListener('click', () => {
+            console.log('Video paused');
+            // Add actual video pause logic here if video element exists
+        });
+
+        playBtn?.addEventListener('click', () => {
+            console.log('Video playing');
+            // Add actual video play logic here if video element exists
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe product cards
+        document.querySelectorAll('.product-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.4s ease-out ${index * 0.06}s`;
+            observer.observe(card);
+        });
+
+        // Category Filter
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+
+                // Update active state
+                categoryButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+
+                // Filter products
+                productCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Load More Button
+        const loadMoreBtn = document.getElementById('load-more');
+        loadMoreBtn?.addEventListener('click', () => {
+            // Simulate loading more products
+            loadMoreBtn.innerHTML = '<span>Loading...</span>';
+            setTimeout(() => {
+                loadMoreBtn.innerHTML = '<span>All Products Loaded</span>';
+                loadMoreBtn.disabled = true;
+                loadMoreBtn.style.opacity = '0.5';
+                loadMoreBtn.style.cursor = 'not-allowed';
+            }, 1000);
+        });
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn?.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Image Error Handling
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                if (!this.classList.contains('error')) {
+                    this.classList.add('error');
+                    this.alt = 'Image unavailable';
+                    console.error('Failed to load image:', this.src);
+                }
+            });
+        });
+
+        // Keyboard Navigation Enhancement
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                mobileMenuBtn.focus();
+            }
+        });
+
+        // Prefers Reduced Motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            document.querySelectorAll('[class*="animate-"]').forEach(el => {
+                el.style.animation = 'none';
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+        }
+
+        // Performance: Log Core Web Vitals (if available)
+        if ('PerformanceObserver' in window) {
+            try {
+                const observer = new PerformanceObserver((list) => {
+                    for (const entry of list.getEntries()) {
+                        console.log(`${entry.name}: ${entry.startTime}ms`);
+                    }
+                });
+                observer.observe({ entryTypes: ['paint', 'largest-contentful-paint'] });
+            } catch (e) {
+                console.error('Performance observer error:', e);
+            }
+        }
+    </script>
+</body>
+</html>
