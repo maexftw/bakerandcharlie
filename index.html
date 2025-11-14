@@ -1376,6 +1376,27 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            /* Fix Hero Background for Mobile */
+            .interactive-hero::after {
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center center;
+            }
+
+            .hero-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-logo {
+                max-width: 280px;
+            }
+
+            .hero-proof {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
             body.has-custom-cursor * {
                 cursor: auto !important;
             }
