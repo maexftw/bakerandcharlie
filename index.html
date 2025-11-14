@@ -3,310 +3,2690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bäcker & Charlie - Authentic German Bakery in Cox Town, Bangalore. Fresh pretzels, berliners, and artisanal baked goods.">
-    <title>Baker V2 | Bäcker & Charlie</title>
-    
-    <!-- Fonts -->
+    <title>Bäcker & Charlie - From Berlin to Bengaluru | Authentic German Bakery</title>
+    <meta name="description" content="Experience authentic German bakery in Bangalore. Interactive menu, fresh daily, handmade with love.">
+    <meta name="theme-color" content="#D84343">
+    <meta name="color-scheme" content="dark">
+
+    <!-- SEO -->
+    <meta property="og:title" content="Bäcker & Charlie - Authentic German Bakery">
+    <meta property="og:description" content="From Berlin to Bengaluru - Fresh German baked goods daily">
+    <meta property="og:image" content="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685696da0107b3921a8bc958_FULL%20COLOUR-%20PRIMARY%20LOGO%20TYPE-1.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856861a53e53dcd1e0d017b_favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/main.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
     <style>
-        /* Exakte Styles aus DevTools */
-        .section_header5 {
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            position: relative !important;
-            min-height: 100vh !important;
-            border-bottom: 1.77778px solid rgb(230, 107, 91) !important;
-            color: rgb(255, 255, 255) !important;
-            overflow: hidden !important;
+        @font-face {
+            font-family: 'Alright Sans';
+            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-LIGHT_4.OTF') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
         }
-        
-        .header5_background-image-wrapper {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            z-index: -1 !important;
+
+        @font-face {
+            font-family: 'Alright Sans';
+            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-REGULAR_4.OTF') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
         }
-        
-        .header5_background-image {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
+
+        @font-face {
+            font-family: 'Alright Sans';
+            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-MEDIUM_4.OTF') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
         }
-        
-        .image-overlay-layer {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            background: rgba(0, 0, 0, 0.3) !important;
+
+        @font-face {
+            font-family: 'Alright Sans';
+            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-BOLD_4.OTF') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
         }
-        
-        .header5_content {
-            position: relative !important;
-            z-index: 1 !important;
-            width: 100% !important;
+
+        :root {
+            --primary: #D84343;
+            --dark: #2C1810;
+            --cream: #F5E6D3;
+            --yellow: #FFD93D;
+            --teal: #00BFA6;
+            --brand-font: 'Alright Sans', 'Space Grotesk', sans-serif;
         }
-        
-        .heading-style-h1.hero.above {
-            font-family: "Alrightsans 4", Arial, sans-serif !important;
-            font-size: 32px !important;
-            font-weight: 400 !important;
-            letter-spacing: 10px !important;
-            color: rgb(255, 255, 255) !important;
-            line-height: 38.4px !important;
-            margin: 0 !important;
+
+        body.has-custom-cursor * {
+            cursor: none !important;
         }
-        
-        .heading-style-h1.hero.sub {
-            font-family: "Alrightsans 4", Arial, sans-serif !important;
-            font-size: 48px !important;
-            font-weight: 700 !important;
-            color: rgb(255, 255, 255) !important;
-            line-height: 57.6px !important;
-            letter-spacing: normal !important;
-            margin: 0 !important;
+
+        body.default-cursor * {
+            cursor: auto !important;
         }
-        
-        .navbar1_menu {
-            display: flex !important;
-            align-items: center !important;
-            gap: 2rem !important;
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--dark);
+            overflow-x: hidden;
+            min-height: 100vh;
         }
-        
-        .navbar1_link {
-            color: rgb(0, 0, 0) !important;
-            text-decoration: none !important;
-            font-weight: 500 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            font-size: 14px !important;
+
+        /* ===== CUSTOM CURSOR ===== */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(216, 67, 67, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .interactive-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('Design ohne Titel.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: 0;
+        }
+
+        .interactive-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(44, 24, 16, 0.65);
+            z-index: 1;
+        }
+
+        .hero-inner {
+            width: min(1200px, 100%);
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .interactive-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge span {
+            color: var(--yellow);
+        }
+
+        .hero-brand-lockup {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-logo {
+            width: min(80vw, 480px);
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(216, 67, 67, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(216, 67, 67, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .kinetic-title {
+            font-family: var(--brand-font);
+            font-weight: 900;
+            font-size: clamp(4rem, 12vw, 12rem);
+            line-height: 0.95;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 2rem;
+        }
+
+        .word {
+            display: inline-block;
+            position: relative;
+            padding: 0 0.2em;
+        }
+
+        .char {
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            color: white;
+            text-shadow: 0 0 20px rgba(216, 67, 67, 0.5);
+        }
+
+        .char:hover {
+            transform: translateY(-20px) scale(1.2) rotate(5deg);
+            color: var(--primary);
+            text-shadow:
+                0 0 30px var(--primary),
+                0 0 60px var(--primary),
+                0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .char.magnetic {
+            transform: scale(1.1);
+            color: var(--yellow);
+        }
+
+        .interactive-subtitle {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: var(--cream);
+            text-align: center;
+            max-width: 900px;
+            margin: 2rem auto 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-support {
+            color: rgba(245, 230, 211, 0.8);
+            max-width: 720px;
+            margin: 0 auto 2rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .interactive-subtitle .highlight {
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-subtitle .highlight:hover {
+            color: var(--yellow);
+            transform: scale(1.05);
+        }
+
+        .interactive-subtitle .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .interactive-subtitle .highlight:hover::after {
+            transform: scaleX(1);
+        }
+
+        .interactive-cta {
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-cta-badge {
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(245, 230, 211, 0.85);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-cta-badge img {
+            width: 140px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .magnetic-button {
+            background: var(--primary);
+            color: white;
+            padding: 1.75rem 4rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 100px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(216, 67, 67, 0.4);
+            border: none;
+        }
+
+        .magnetic-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, var(--yellow), var(--teal));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .magnetic-button:hover::before {
+            opacity: 1;
+        }
+
+        .magnetic-button span {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .magnetic-button:hover span {
+            transform: scale(1.1);
+        }
+
+        .magnetic-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(216, 67, 67, 0.6);
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            pointer-events: none;
+            transition: transform 0.3s ease;
+        }
+
+        .float-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .float-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--yellow);
+            bottom: 15%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .float-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--teal);
+            top: 60%;
+            left: 15%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .glitch:hover::before {
+            animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            color: var(--primary);
+            z-index: -1;
+        }
+
+        .glitch:hover::after {
+            animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+            color: var(--teal);
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0% { transform: translate(0); opacity: 0; }
+            20% { transform: translate(-3px, 3px); opacity: 1; }
+            40% { transform: translate(-3px, -3px); opacity: 1; }
+            60% { transform: translate(3px, 3px); opacity: 1; }
+            80% { transform: translate(3px, -3px); opacity: 1; }
+            100% { transform: translate(0); opacity: 0; }
+        }
+
+        @keyframes glitch-2 {
+            0% { transform: translate(0); opacity: 0; }
+            20% { transform: translate(3px, 3px); opacity: 1; }
+            40% { transform: translate(3px, -3px); opacity: 1; }
+            60% { transform: translate(-3px, 3px); opacity: 1; }
+            80% { transform: translate(-3px, -3px); opacity: 1; }
+            100% { transform: translate(0); opacity: 0; }
+        }
+
+        .info-tags {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-proof {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-proof-card {
+            padding: 2rem 1.75rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 1.5rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-proof-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--yellow));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-proof-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .hero-proof-card:hover {
+            background: linear-gradient(135deg, rgba(216, 67, 67, 0.15), rgba(255, 217, 61, 0.08));
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(216, 67, 67, 0.25);
+        }
+
+        .hero-proof-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(216, 67, 67, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-proof-card:hover .hero-proof-icon {
+            background: rgba(255, 217, 61, 0.3);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .hero-proof-icon i {
+            width: 24px;
+            height: 24px;
+            color: var(--yellow);
+        }
+
+        .hero-proof-card span {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--yellow);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero-proof-card strong {
+            display: block;
+            font-size: 2.25rem;
+            font-family: var(--brand-font);
+            color: white;
+            margin-bottom: 0.75rem;
+            line-height: 1;
+            font-weight: 900;
+        }
+
+        .hero-proof-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(216, 67, 67, 0.4);
+        }
+
+        /* ===== MENU SECTION (V2 LAYOUT) ===== */
+        .menu-section {
+            background: linear-gradient(180deg, var(--dark) 0%, #1a1410 100%);
+            position: relative;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-brand-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .menu-monogram {
+            width: 96px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .menu-illustration {
+            width: 120px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            opacity: 0.85;
+            display: block;
+        }
+
+        .sidebar-brand-panel p {
+            color: rgba(245, 230, 211, 0.75);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .category-item {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-height: 56px; /* Fitts's Law: Adequate touch target */
+            color: var(--cream);
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .category-item:focus-visible {
+            outline: 2px solid var(--yellow);
+            outline-offset: -2px;
+        }
+
+        .category-item:hover {
+            background: rgba(216, 67, 67, 0.1);
+            border-left-color: var(--primary);
+        }
+
+        .category-item.active {
+            background: rgba(216, 67, 67, 0.2);
+            border-left-color: var(--yellow);
+            font-weight: 600;
+            color: var(--yellow);
+        }
+
+        /* Product Card */
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(216, 67, 67, 0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+            background: rgba(255, 255, 255, 0.05);
+            display: block;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .product-card img[loading="lazy"] {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Search Box */
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .search-box input::placeholder {
+            color: var(--cream);
+            opacity: 0.5;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(216, 67, 67, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cream);
+            opacity: 0.6;
+        }
+
+        /* Order Button */
+        .btn-order {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            min-height: 48px;
+        }
+
+        .btn-order:hover {
+            background: var(--yellow);
+            color: var(--dark);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 217, 61, 0.4);
+        }
+
+        .btn-add {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            min-width: fit-content;
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-add:hover,
+        .btn-add:focus-visible {
+            background: var(--yellow);
+            color: var(--dark);
+            transform: scale(1.05);
+            outline: 2px solid var(--yellow);
+            outline-offset: 2px;
+        }
+
+        .btn-add:active {
+            transform: scale(0.98);
+        }
+
+        /* Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Mobile Sidebar */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                height: 100vh;
+                width: 280px;
+                z-index: 50;
+                transition: left 0.3s ease;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.7);
+                z-index: 45;
+            }
+
+            .sidebar-overlay.open {
+                display: block;
+            }
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(216, 67, 67, 0.1);
+            border: 1px solid rgba(216, 67, 67, 0.3);
+            padding: 1rem;
+            border-radius: 0.75rem;
+        }
+
+        .info-box h3 {
+            color: var(--yellow);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box ul {
+            color: var(--cream);
+        }
+
+        /* ===== INSTAGRAM ===== */
+        .instagram-section {
+            min-height: 80vh;
+            background: linear-gradient(180deg, #1a1410 0%, var(--dark) 100%);
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .instagram-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .instagram-content {
+            color: white;
+        }
+
+        .instagram-title {
+            font-family: var(--brand-font);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .instagram-description {
+            color: var(--cream);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .instagram-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(188, 24, 136, 0.3);
+        }
+
+        .instagram-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(188, 24, 136, 0.5);
+        }
+
+        .instagram-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .instagram-preview {
+            position: relative;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .instagram-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(216, 67, 67, 0.3);
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .instagram-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .instagram-item:hover .instagram-overlay {
+            opacity: 1;
+        }
+
+        .instagram-icon-small {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-section {
+            background: linear-gradient(180deg, #140c08 0%, #1f120c 100%);
+            padding: 6rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            inset: -15% -5% auto -5%;
+            min-height: 70%;
+            background-image:
+                linear-gradient(180deg, rgba(20, 12, 8, 0.85), rgba(31, 18, 12, 0.95)),
+                url('Styleguide SVGs und co/BRANDING STRIPES/STRIPES WITH BRANDING/JPEG/STRIPES-WITH-BRANDING.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            mix-blend-mode: screen;
+        }
+
+        .gallery-section::after {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background: var(--yellow);
+            bottom: 5%;
+            right: -6%;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+        .gallery-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .gallery-title {
+            font-family: var(--brand-font);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: white;
+            margin: 0.75rem 0 1rem;
+        }
+
+        .gallery-description {
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 720px;
+            line-height: 1.8;
+        }
+
+        .gallery-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            min-height: 320px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 30px 70px rgba(216, 67, 67, 0.3);
+        }
+
+        .gallery-card:focus-within {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s ease;
+            filter: saturate(1.05);
+            display: block;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-meta {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .gallery-chip {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--yellow);
+        }
+
+        .gallery-meta h3 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .gallery-meta p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== VISIT SECTION ===== */
+        .visit-section {
+            min-height: 100vh;
+            background: linear-gradient(180deg, var(--dark) 0%, #0a0604 100%);
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visit-section::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.08;
+        }
+
+        .visit-section::after {
+            content: '';
+            position: absolute;
+            bottom: 5%;
+            right: -5%;
+            width: 300px;
+            height: 300px;
+            background: var(--yellow);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.06;
+        }
+
+        .visit-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .visit-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .visit-eyebrow {
+            display: inline-block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--yellow);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .visit-title {
+            font-family: var(--brand-font);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .visit-intro {
+            font-size: 1.15rem;
+            color: var(--cream);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        .visit-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .visit-detail-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 1.25rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .visit-detail-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(216, 67, 67, 0.2);
+        }
+
+        .visit-highlight {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(216, 67, 67, 0.08), rgba(255, 217, 61, 0.05));
+            border-color: rgba(216, 67, 67, 0.2);
+        }
+
+        .visit-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            background: rgba(216, 67, 67, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .visit-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--yellow);
+        }
+
+        .visit-detail-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .visit-detail-text {
+            color: var(--cream);
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .visit-detail-text strong {
+            color: white;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .visit-hint {
+            font-size: 0.9rem;
+            color: var(--yellow);
+            font-style: italic;
+        }
+
+        .visit-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .visit-cta:hover {
+            gap: 0.75rem;
+            color: var(--yellow);
+        }
+
+        .visit-cta-icon {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .visit-cta:hover .visit-cta-icon {
+            transform: translateX(4px);
+        }
+
+        .visit-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .visit-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--cream);
+            opacity: 0.9;
+        }
+
+        .visit-check {
+            width: 20px;
+            height: 20px;
+            color: var(--yellow);
+            flex-shrink: 0;
+        }
+
+        .visit-cta-banner {
+            background: linear-gradient(135deg, rgba(216, 67, 67, 0.15), rgba(255, 217, 61, 0.1));
+            border: 1px solid rgba(216, 67, 67, 0.3);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .visit-cta-content h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .visit-cta-content p {
+            color: var(--cream);
+            opacity: 0.85;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .visit-main-cta {
+            background: var(--primary);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 10px 30px rgba(216, 67, 67, 0.3);
+        }
+
+        .visit-main-cta:hover {
+            background: var(--yellow);
+            color: var(--dark);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(255, 217, 61, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body.has-custom-cursor * {
+                cursor: auto !important;
+            }
+
+            .custom-cursor,
+            .custom-cursor-follower {
+                display: none;
+            }
+
+            .char:hover {
+                transform: scale(1.1);
+            }
+
+            .instagram-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .hero-proof {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .hero-proof-card {
+                text-align: center;
+            }
+
+            .hero-proof-icon {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .interactive-hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-brand-lockup {
+                margin-bottom: 1rem;
+                gap: 0.5rem;
+            }
+
+            .hero-logo {
+                width: min(90vw, 400px);
+            }
+
+            .hero-cta-badge {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .hero-cta-badge img {
+                width: 120px;
+            }
+
+            .menu-monogram {
+                width: 72px;
+            }
+
+            .menu-illustration {
+                width: 100px;
+            }
+
+            .gallery-section {
+                padding: 4rem 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .gallery-card img {
+                height: 200px;
+            }
+
+            .visit-section {
+                padding: 4rem 1rem;
+            }
+
+            .visit-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visit-highlight {
+                grid-column: span 1;
+            }
+
+            .visit-cta-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .visit-main-cta {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .magnetic-button {
+                padding: 1.25rem 2.5rem;
+                font-size: 1.1rem;
+            }
+
+            .instagram-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .kinetic-title {
+                font-size: clamp(2.5rem, 10vw, 6rem);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bg-grid,
+            .floating-element,
+            .char:hover,
+            .magnetic-button::before {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .bg-grid {
+                background-position: 0 0;
+            }
+
+            .floating-element {
+                transform: none !important;
+            }
+        }
+
+        /* Focus - Accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--yellow);
+            outline-offset: 3px;
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav role="navigation" class="navbar1_menu is-page-height-tablet w-nav-menu">
-        <div class="navbar1_menu-links">
-            <a href="#" class="navbar1_link w-nav-link">HOME</a>
-            <a href="#" class="navbar1_link w-nav-link">MENU</a>
-            <a href="#" class="navbar1_link w-nav-link">TEAM</a>
-        </div>
-        <div class="navbar1_menu-buttons"></div>
-    </nav>
+<body class="has-custom-cursor">
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <main class="main-wrapper">
-        <!-- Hero Section -->
-        <header class="section_header5 text-color-white">
-            <div class="padding-global hero">
-                <div class="container-large">
-                    <div class="header5_content">
-                        <div class="padding-section-large">
-                            <div class="max-width-medium hero">
-                                <div class="margin-bottom margin-small">
-                                    <div class="div-block-6">
-                                        <h1 class="heading-style-h1 hero above">From</h1>
-                                        <h1 class="heading-style-h1 hero sub">BERLIN to BENGALURU</h1>
-                                    </div>
-                                    <div class="header42_content">
-                                        <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68580854d8e79fd51a05acc9_PRIMARY%20LOGOTYPE-1.png" 
-                                             loading="lazy" 
-                                             width="468" 
-                                             sizes="(max-width: 479px) 100vw, 468px" 
-                                             alt="Bäcker & Charlie Logo"
-                                             srcset="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68580854d8e79fd51a05acc9_PRIMARY%20LOGOTYPE-1-p-500.png 500w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68580854d8e79fd51a05acc9_PRIMARY%20LOGOTYPE-1-p-800.png 800w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68580854d8e79fd51a05acc9_PRIMARY%20LOGOTYPE-1-p-1080.png 1080w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68580854d8e79fd51a05acc9_PRIMARY%20LOGOTYPE-1.png 1588w">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!--
+        UX AUDIT — December 2025
+        HERO (Hick's Law): kinetic typography + cursor + multiple badges created parallel choices with no hierarchy.
+        → Action: introduce badge + proof grid to chunk information and give a single CTA focus.
+        MENU (Fitts's Law): category divs were small, non-semantic targets that slowed filtering.
+        → Action: convert to full-width buttons with clear focus states and aria-pressed toggles.
+        CAFE EXPERIENCE (Von Restorff Effect): narrative cards blended with background, so the unique story was lost.
+        → Action: new gallery bridge + elevated feature styling to create standout anchors before café story.
+    -->
+
+    <!-- Floating Elements -->
+    <div class="floating-element float-1"></div>
+    <div class="floating-element float-2"></div>
+    <div class="floating-element float-3"></div>
+
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+
+    <main id="main">
+        <!-- ===== HERO: Interactive Typography ===== -->
+        <section class="interactive-hero" aria-labelledby="kinetic-title">
+            <div class="hero-inner">
+                <p class="hero-badge">
+                    Hand-shaped at <span>4 AM</span> · Served warm by <span>7 AM</span>
+                </p>
+
+                <div class="hero-brand-lockup">
+                    <img
+                        src="Styleguide SVGs und co/FULL COLOUR- PRIMARY LOGO TYPE - HORIZONTAL/PNG/PNG---RED---PRIMARY-LOGO-TYPE----HORIZONTAL.png"
+                        width="480"
+                        height="180"
+                        alt="Bäcker & Charlie primary logo"
+                        class="hero-logo">
+                </div>
+
+                <div class="kinetic-title" id="kinetic-title">
+                    <div class="word glitch" data-text="BERLIN">
+                        <span class="char">B</span><span class="char">E</span><span class="char">R</span><span class="char">L</span><span class="char">I</span><span class="char">N</span>
+                    </div>
+                    <br>
+                    <div class="word" style="color: var(--yellow);">
+                        <span class="char">×</span>
+                    </div>
+                    <br>
+                    <div class="word glitch" data-text="BANGALORE">
+                        <span class="char">B</span><span class="char">A</span><span class="char">N</span><span class="char">G</span><span class="char">A</span><span class="char">L</span><span class="char">O</span><span class="char">R</span><span class="char">E</span>
+                    </div>
+                </div>
+
+                <p class="interactive-subtitle">
+                    Where <span class="highlight">authentic German baking</span> meets
+                    <span class="highlight">Indian hospitality</span>.
+                    Fresh from our ovens at <span class="highlight">4 AM daily</span>.
+                </p>
+
+                <p class="hero-support">
+                    Sensory-first service keeps the decision simple: walk in for the aroma, stay for the
+                    charred-pretzel crunch, and leave with a box for your block. Every touchpoint is staged to reduce
+                    cognitive load while highlighting what matters—warmth, craft, and conviviality.
+                </p>
+
+                <div class="interactive-cta">
+                    <a href="#menu" class="magnetic-button">
+                        <span>Experience the Magic →</span>
+                    </a>
+                </div>
+
+                <div class="info-tags" aria-label="Offer highlights">
+                    <div class="tag">🥨 Traditional Pretzels</div>
+                    <div class="tag">🥐 Fresh Croissants</div>
+                    <div class="tag">🍞 Artisan Bread</div>
+                    <div class="tag">☕ Specialty Coffee</div>
+                </div>
+
+                <div class="hero-proof" role="list">
+                    <article class="hero-proof-card" role="listitem">
+                        <div class="hero-proof-icon">
+                            <i data-lucide="sunrise"></i>
+                        </div>
+                        <span>Daily Ritual</span>
+                        <strong>4 AM</strong>
+                        <p>First trays out before sunrise so guests smell the bake before they see the menu.</p>
+                    </article>
+                    <article class="hero-proof-card" role="listitem">
+                        <div class="hero-proof-icon">
+                            <i data-lucide="chef-hat"></i>
+                        </div>
+                        <span>Menu Focus</span>
+                        <strong>18 Core</strong>
+                        <p>Authentic German specialties, handcrafted daily with traditional recipes.</p>
+                    </article>
+                    <article class="hero-proof-card" role="listitem">
+                        <div class="hero-proof-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <span>Community</span>
+                        <strong>92% Stay</strong>
+                        <p>Most visitors settle in for coffee thanks to warm seating nooks.</p>
+                    </article>
+                    <article class="hero-proof-card" role="listitem">
+                        <div class="hero-proof-icon">
+                            <i data-lucide="heart-handshake"></i>
+                        </div>
+                        <span>Handcrafted</span>
+                        <strong>100%</strong>
+                        <p>Every pretzel hand-knotted, every loaf shaped by skilled bakers.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MENU SECTION (V2 LAYOUT WITH SIDEBAR) ===== -->
+        <section id="menu" class="menu-section">
+            <!-- Top Banner -->
+            <div class="top-banner">
+                <div class="container mx-auto px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-6">
+                            <button id="mobile-sidebar-btn" class="md:hidden p-2" aria-label="Open categories menu">
+                                <i data-lucide="menu" class="w-6 h-6" style="color: var(--cream);"></i>
+                            </button>
+                            <div>
+                                <span class="text-lg font-medium text-white">From <strong style="color: var(--primary);">BERLIN</strong> to <strong style="color: var(--yellow);">BENGALURU</strong></span>
+                            </div>
+                        </div>
+
+                        <button class="btn-order">
+                            <i data-lucide="shopping-bag" class="inline-block w-5 h-5 mr-2"></i>
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Overlay (Mobile) -->
+            <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+            <div class="flex">
+                <!-- Sidebar -->
+                <aside id="sidebar" class="sidebar w-64 md:w-72" role="navigation" aria-label="Product categories">
+                    <div class="p-6">
+                        <button id="close-sidebar" class="md:hidden absolute top-4 right-4 p-2" aria-label="Close menu">
+                            <i data-lucide="x" class="w-6 h-6" style="color: var(--cream);"></i>
+                        </button>
+
+                        <div class="sidebar-brand-panel">
+                            <img
+                                src="Styleguide SVGs und co/INDIVIDUAL -ILLUSTRATIVE ELEMENTS - FROM MONOGRAM/RED/PNG/PRETZEL--INDIVIDUAL-ELEMENTS---RED.png"
+                                width="120"
+                                height="120"
+                                alt=""
+                                class="menu-illustration"
+                                loading="lazy"
+                                aria-hidden="true">
+                            <p>Daily bake · est. 2010</p>
+                        </div>
+
+                        <h2 class="text-xl font-bold mb-6 text-white">Categories</h2>
+
+                        <nav>
+                            <button type="button" class="category-item active" data-category="all" aria-pressed="true">
+                                <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                                <span>All Products</span>
+                            </button>
+                            <button type="button" class="category-item" data-category="breads" aria-pressed="false">
+                                <span class="text-2xl">🥨</span>
+                                <span>Breads & Pretzels</span>
+                            </button>
+                            <button type="button" class="category-item" data-category="pastries" aria-pressed="false">
+                                <span class="text-2xl">🥐</span>
+                                <span>Pastries & Sweets</span>
+                            </button>
+                            <button type="button" class="category-item" data-category="sandwiches" aria-pressed="false">
+                                <span class="text-2xl">🥪</span>
+                                <span>Sandwiches</span>
+                            </button>
+                            <button type="button" class="category-item" data-category="drinks" aria-pressed="false">
+                                <span class="text-2xl">☕</span>
+                                <span>Drinks</span>
+                            </button>
+                            <button type="button" class="category-item" data-category="breakfast" aria-pressed="false">
+                                <span class="text-2xl">🍳</span>
+                                <span>Breakfast Specials</span>
+                            </button>
+                        </nav>
+
+                        <div class="mt-8">
+                            <div class="search-box">
+                                <i data-lucide="search" class="search-icon w-5 h-5"></i>
+                                <input type="text"
+                                       id="search-input"
+                                       placeholder="Search products..."
+                                       aria-label="Search products">
+                            </div>
+                        </div>
+
+                        <div class="mt-8 info-box">
+                            <h3>Why Choose Us?</h3>
+                            <ul class="text-sm space-y-2">
+                                <li>✓ Fresh daily</li>
+                                <li>✓ Authentic German</li>
+                                <li>✓ Handmade with care</li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="flex-1 p-6 md:p-8">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="mb-8">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white" style="font-family: 'Space Grotesk', sans-serif;">Our Menu</h2>
+                            <p style="color: var(--cream); opacity: 0.8;">Authentic German baked goods, fresh every morning</p>
+                        </div>
+
+                        <!-- Products Grid -->
+                        <div id="products-container" class="products-grid">
+                            <!-- Product 1 -->
+                            <article class="product-card" data-category="breads">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/jalapeno-cheese-pretzel.webp"
+                                         alt="Jalapeño & Cheese Pretzel"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Jalapeño & Cheese Pretzel</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Spicy jalapeño with melted cheese on classic pretzel</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹160</span>
+                                        <button class="btn-add">Add to Order</button>
                                     </div>
                                 </div>
+                            </article>
+
+                            <!-- Product 2 -->
+                            <article class="product-card" data-category="pastries">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/powdered-jelly-berliner.webp"
+                                         alt="Berliner - Rhubarb & Kaffir Lime"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Berliner - Rhubarb & Kaffir Lime</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Fluffy pastry with exotic rhubarb filling</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹120</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 3 -->
+                            <article class="product-card" data-category="sandwiches">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/bratwurst-pretzel-slider.webp"
+                                         alt="Fried Chicken AF!"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Fried Chicken AF!</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Crispy fried chicken on fresh artisan bread</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹250</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 4 -->
+                            <article class="product-card" data-category="sandwiches">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/beef-steak-sandwich-sourdough.webp"
+                                         alt="The Beef"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">The Beef, On Sauerteigbrötchen</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Premium beef on sourdough bread</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹280</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 5 -->
+                            <article class="product-card" data-category="breads">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/kornbroetchen-rye-rolls.webp"
+                                         alt="Käsebrötchen"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Käsebrötchen (Cheese Bread)</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Traditional German cheese bread</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹180</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 6 -->
+                            <article class="product-card" data-category="sandwiches">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/focaccia-caprese-and-nutella-berliner.webp"
+                                         alt="Caprese Focaccia"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Caprese-Insalata Focaccia</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Fresh mozzarella, tomato, basil on focaccia</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹220</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 7 -->
+                            <article class="product-card" data-category="breads">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/focaccia-salad-hot-chocolate.webp"
+                                         alt="Olive & Rosemary Focaccia"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Olive & Rosemary Focaccia</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Italian-style focaccia with German precision</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹150</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 8 -->
+                            <article class="product-card" data-category="pastries">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/chocolate-cream-berliner.webp"
+                                         alt="Bon Fiction - Rose In Pistachio Skies"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Bon Fiction - Rose In Pistachio Skies</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Delicate rose and pistachio pastry</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹180</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 9 -->
+                            <article class="product-card" data-category="breakfast">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/bacon-egg-cheese-breakfast-sandwich.webp"
+                                         alt="Eggs Florentine"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Eggs Florentine - Carrot & Spinach</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Healthy breakfast with eggs and greens</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹240</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 10 -->
+                            <article class="product-card" data-category="breads">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/pretzel-breakfast-sandwich.webp"
+                                         alt="English Muffins"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">English Muffins (3 pcs)</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Perfect for breakfast sandwiches</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹140</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 11 -->
+                            <article class="product-card" data-category="breakfast">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/pretzel-charcuterie-board.webp"
+                                         alt="German Breakfast Board"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">German Breakfast Board</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Assorted breads, cheese, and meats</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹450</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Product 12 -->
+                            <article class="product-card" data-category="breads">
+                                <div style="overflow: hidden;">
+                                    <img src="WEBSITE OUTPUT/pretzel-party-platter.webp"
+                                         alt="Mini Salted Pretzel Party Pack"
+                                         width="300"
+                                         height="220"
+                                         loading="lazy">
+                                </div>
+                                <div class="p-4 flex-1 flex flex-col">
+                                    <h3 class="font-bold text-lg mb-2 text-white">Mini Salted Pretzel - Party Pack</h3>
+                                    <p class="text-sm mb-4 flex-1" style="color: var(--cream); opacity: 0.7;">Perfect for sharing and events</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xl font-bold" style="color: var(--yellow);">₹350</span>
+                                        <button class="btn-add">Add to Order</button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Empty State -->
+                        <div id="empty-state" class="hidden text-center py-20">
+                            <i data-lucide="search-x" class="w-16 h-16 mx-auto mb-4" style="color: var(--cream); opacity: 0.4;"></i>
+                            <h3 class="text-xl font-bold mb-2 text-white">No products found</h3>
+                            <p style="color: var(--cream); opacity: 0.6;">Try a different category or search term</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STORY GALLERY ===== -->
+        <section class="gallery-section" id="gallery" aria-labelledby="gallery-title">
+            <div class="gallery-inner">
+                <p class="gallery-eyebrow">Sense The Space</p>
+                <h2 class="gallery-title" id="gallery-title">Gallery · Rituals & Rooms</h2>
+                <p class="gallery-description">
+                    Each vignette reveals a single decision moment—where to stand, what to order, how to linger.
+                    The curation mirrors Laws of UX by chunking visual choices into digestible stories so your eyes
+                    land on one focal point at a time.
+                </p>
+
+                <div class="gallery-grid">
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/bakery-front-counter.webp"
+                             alt="Front counter with curated pastry display and warm lighting"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Welcome</span>
+                            <h3>Our Bakery Counter</h3>
+                            <p>Step into our warm space where fresh pastries greet you at the counter every morning.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/pretzels-cooling-rack.webp"
+                             alt="Fresh pretzels cooling on a rack"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Fresh Daily</span>
+                            <h3>Fresh Pretzels</h3>
+                            <p>Our signature pretzels cooling on the rack, baked fresh every morning at 4 AM.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/pretzel-sandwich-board.webp"
+                             alt="Pretzel sandwich trio on a wooden board"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Lunch Special</span>
+                            <h3>Pretzel Sandwiches</h3>
+                            <p>Our delicious pretzel sandwiches served on a wooden board, perfect for sharing.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/espresso-machine-with-barista.webp"
+                             alt="Barista pulling espresso shots beside pastries"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Coffee</span>
+                            <h3>Our Barista</h3>
+                            <p>Expert baristas craft the perfect espresso alongside our fresh pastries.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/artisan-bread-racks.webp"
+                             alt="Artisan bread loaves stacked on racks"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Artisan Bread</span>
+                            <h3>Fresh Bread Loaves</h3>
+                            <p>Handcrafted artisan bread loaves displayed on racks, baked with traditional German techniques.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/pretzel-charcuterie-board.webp"
+                             alt="Pretzel charcuterie board with spreads and pickles"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Sharing Platter</span>
+                            <h3>Pretzel Charcuterie</h3>
+                            <p>A beautiful charcuterie board featuring our pretzels with spreads, cheeses, and pickles.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/outdoor-patio-seating.webp"
+                             alt="Outdoor patio seating with string lights"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Outdoor Seating</span>
+                            <h3>Patio Area</h3>
+                            <p>Enjoy your coffee and pastries in our cozy outdoor patio with warm string lights.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/baker-knots-pretzel-dough.webp"
+                             alt="Baker knotting pretzel dough by hand"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Handcrafted</span>
+                            <h3>Making Pretzels</h3>
+                            <p>Watch our bakers hand-knot each pretzel with care, using traditional German techniques.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/pretzel-burger-platter.webp"
+                             alt="Pretzel burgers on a platter ready to serve"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Special</span>
+                            <h3>Pretzel Burgers</h3>
+                            <p>Our unique pretzel burgers, a perfect fusion of German tradition and modern flavors.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/bakery-team-photo.webp"
+                             alt="Bakery team posing together in the kitchen"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Our Team</span>
+                            <h3>Bakery Family</h3>
+                            <p>Meet the passionate team behind every fresh bake, bringing authentic German flavors to Bangalore.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/bakery-dining-area.webp"
+                             alt="Cozy dining area with warm lighting and comfortable seating"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Ambiance</span>
+                            <h3>Cozy Dining Area</h3>
+                            <p>Relax in our warm, inviting dining space with comfortable seating and welcoming atmosphere.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/pastry-case-closeup.webp"
+                             alt="Close-up view of pastries in display case"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Display</span>
+                            <h3>Pastry Case</h3>
+                            <p>Our beautifully arranged pastry case showcasing fresh croissants, Berliners, and sweet treats.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/classic-bavarian-pretzel.webp"
+                             alt="Classic Bavarian pretzel with golden brown crust"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Signature</span>
+                            <h3>Classic Bavarian Pretzel</h3>
+                            <p>Our signature pretzel with golden brown crust, the heart of our German bakery tradition.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/freshly-baked-bread-loaves.webp"
+                             alt="Freshly baked artisan bread loaves on display"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Daily Fresh</span>
+                            <h3>Morning Bread</h3>
+                            <p>Freshly baked bread loaves ready every morning, filling the bakery with the aroma of authentic German baking.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/coffee-bar-seating.webp"
+                             alt="Coffee bar with comfortable seating area"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Coffee Culture</span>
+                            <h3>Coffee Bar Seating</h3>
+                            <p>Our comfortable coffee bar area where you can enjoy specialty coffee with your favorite pastry.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/artisan-baker-cutting-dough.webp"
+                             alt="Artisan baker skillfully cutting dough"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Craftsmanship</span>
+                            <h3>Artisan Techniques</h3>
+                            <p>Our skilled bakers use traditional techniques, cutting and shaping dough with precision and care.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/pretzel-production-line.webp"
+                             alt="Pretzel production line showing the baking process"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Behind the Scenes</span>
+                            <h3>Pretzel Production</h3>
+                            <p>See how we make our pretzels—from dough to finished product, every step done with care.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/bakery-display-case.webp"
+                             alt="Bakery display case filled with fresh baked goods"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Selection</span>
+                            <h3>Bakery Display</h3>
+                            <p>Our carefully curated display case filled with fresh baked goods, from breads to pastries.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/chalkboard-menu-sign.webp"
+                             alt="Chalkboard menu sign with daily specials"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Daily Specials</span>
+                            <h3>Chalkboard Menu</h3>
+                            <p>Our charming chalkboard menu featuring daily specials and seasonal offerings.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-card">
+                        <img src="WEBSITE OUTPUT/counter-service-area.webp"
+                             alt="Counter service area with friendly staff"
+                             width="480"
+                             height="320"
+                             loading="lazy">
+                        <figcaption class="gallery-meta">
+                            <span class="gallery-chip">Service</span>
+                            <h3>Friendly Service</h3>
+                            <p>Our welcoming team at the counter, ready to help you choose the perfect treat.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== INSTAGRAM ===== -->
+        <section class="instagram-section">
+            <div class="instagram-inner">
+                <div class="instagram-content">
+                    <h2 class="instagram-title">Follow Our Journey</h2>
+                    <p class="instagram-description">
+                        Get a daily dose of fresh bakes, behind-the-scenes moments, and stories from our bakery.
+                        Join our community on Instagram and be part of the Bäcker & Charlie family.
+                    </p>
+                    <a href="https://www.instagram.com/baeckercharlie" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="instagram-button">
+                        <i data-lucide="instagram" class="instagram-icon"></i>
+                        <span>Follow @baeckercharlie</span>
+                    </a>
+                </div>
+                <div class="instagram-preview">
+                    <div class="instagram-grid">
+                        <div class="instagram-item">
+                            <img src="instagram-images/instagram-post-1.jpg"
+                                 alt="Instagram post 1"
+                                 loading="lazy">
+                            <div class="instagram-overlay">
+                                <i data-lucide="heart" class="instagram-icon-small"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="instagram-images/instagram-post-2.jpg"
+                                 alt="Instagram post 2"
+                                 loading="lazy">
+                            <div class="instagram-overlay">
+                                <i data-lucide="heart" class="instagram-icon-small"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="instagram-images/instagram-post-3.jpg"
+                                 alt="Instagram post 3"
+                                 loading="lazy">
+                            <div class="instagram-overlay">
+                                <i data-lucide="heart" class="instagram-icon-small"></i>
+                            </div>
+                        </div>
+                        <div class="instagram-item">
+                            <img src="instagram-images/instagram-post-4.jpg"
+                                 alt="Instagram post 4"
+                                 loading="lazy">
+                            <div class="instagram-overlay">
+                                <i data-lucide="heart" class="instagram-icon-small"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="header5_background-image-wrapper">
-                <div class="image-overlay-layer"></div>
-                <img sizes="(max-width: 1920px) 100vw, 1920px" 
-                     srcset="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin-p-500.png 500w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin-p-800.png 800w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin-p-1080.png 1080w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin-p-1600.png 1600w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin.png 1920w" 
-                     alt="" 
-                     src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685805a1d6d2e5f216d59d4c_berlin.png" 
-                     loading="eager" 
-                     class="header5_background-image">
-            </div>
-        </header>
-
-        <!-- Video Section -->
-        <header class="section_header42">
-            <div class="w-layout-grid header42_component">
-                <div class="header42_content">
-                    <div class="margin-bottom margin-small">
-                        <h1 class="heading-style-h1">Authentic German Breakfast. Baked in Mumbai.</h1>
-                    </div>
-                    <p class="text-size-medium">Pretzels, Brötchen & Croissants – fresh out of the oven every morning.</p>
-                    <div class="margin-top margin-medium"></div>
-                </div>
-                <div class="background-video-2 w-background-video w-background-video-atom">
-                    <video id="hero-video" 
-                           autoplay 
-                           loop 
-                           muted 
-                           playsinline 
-                           data-object-fit="cover"
-                           style="background-image:url('https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1%2F6856a40cc8fa95412a9db664_copy_E03FC7F5-17B4-40ED-AB2E-EA15551AF16A-poster-00001.jpg')">
-                        <source src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1%2F6856a40cc8fa95412a9db664_copy_E03FC7F5-17B4-40ED-AB2E-EA15551AF16A-transcode.mp4" type="video/mp4">
-                        <source src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1%2F6856a40cc8fa95412a9db664_copy_E03FC7F5-17B4-40ED-AB2E-EA15551AF16A-transcode.webm" type="video/webm">
-                    </video>
-                    <div aria-live="polite">
-                        <button type="button" 
-                                data-w-bg-video-control="true" 
-                                aria-controls="hero-video" 
-                                class="w-backgroundvideo-backgroundvideoplaypausebutton w-background-video--control">
-                            <span><img src="https://cdn.prod.website-files.com/6022af993a6b2191db3ed10c/628299f8aa233b83918e24fd_Pause.svg" loading="lazy" alt="Pause video"></span>
-                            <span hidden><img loading="lazy" alt="Play video" src="https://cdn.prod.website-files.com/6022af993a6b2191db3ed10c/628298b20ae0236682d4b87f_Play-24.svg"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Welcome & Mission Section -->
-        <section class="section-3">
-            <div class="w-layout-blockcontainer container-5 w-container">
-                <div class="div-block-7">
-                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538.jpg" 
-                         loading="lazy" 
-                         width="416" 
-                         sizes="(max-width: 479px) 100vw, 416px" 
-                         alt="Bakery interior"
-                         srcset="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538-p-500.jpg 500w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538-p-800.jpg 800w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538-p-1080.jpg 1080w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685815ef37aca79241e91b63_Screenshot%202024-12-12%20142538.jpg 1332w" 
-                         class="image-6">
-                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png" 
-                         loading="lazy" 
-                         width="127" 
-                         alt="" 
-                         class="image-7">
-                </div>
-                <div class="div-block-8">
-                    <div>
-                        <h1 class="heading-3">Welcome to Bäcker & Charlie!</h1>
-                        <p class="paragraph-2">We're a cozy neighborhood bakery and café in Cox Town, Bangalore, serving authentic German artisanal baked goods.</p>
-                    </div>
-                    <div class="div-block-9">
-                        <h1 class="heading-4">Our Mission</h1>
-                        <p class="paragraph-3">We aim to bring people together with honest food and an authentic café experience that keeps them coming back for the unique taste they can only find here.</p>
-                    </div>
-                </div>
-            </div>
-            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED.png" 
-                 loading="lazy" 
-                 width="490" 
-                 sizes="(max-width: 767px) 100vw, 490px" 
-                 alt="Wheat decoration"
-                 srcset="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED-p-500.png 500w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED-p-800.png 800w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED-p-1080.png 1080w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED-p-1600.png 1600w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582f7f3538fc9ed8ce12c7_WHEAT---RED--INDIVIDUAL-ELEMENTS---RED.png 2000w" 
-                 class="image-8 _2">
-            <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED.png" 
-                 loading="lazy" 
-                 sizes="(max-width: 2000px) 100vw, 2000px" 
-                 alt="Charlie bear decoration"
-                 srcset="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED-p-500.png 500w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED-p-800.png 800w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED-p-1080.png 1080w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED-p-1600.png 1600w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/68582ea79cda69b64ee09318_CHARLIE---RED--INDIVIDUAL-ELEMENTS---RED.png 2000w" 
-                 class="image-8 _3 _4">
         </section>
 
-        <!-- Berlin/Bengaluru Marquee Section -->
-        <section id="marquee" data-animate="marquee" class="sec">
-            <div class="comp scroller">
-                <div data-marquee="line" class="scroller-line first">
-                    <div class="scroller-text">BERLIN</div>
-                    <div class="marquee-img">
-                        <div class="dual-img">
-                            <img loading="eager" 
-                                 src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png" 
-                                 alt="" 
-                                 class="dual-img-img">
-                        </div>
-                    </div>
-                    <div class="scroller-text">BENGALURU</div>
+        <!-- ===== VISIT OUR CAFÉ ===== -->
+        <section class="visit-section">
+            <div class="visit-container">
+                <div class="visit-hero">
+                    <span class="visit-eyebrow">Come Say Hallo</span>
+                    <h2 class="visit-title">Your Morning <br>Starts Here</h2>
+                    <p class="visit-intro">
+                        Step into our cozy corner in Cox Town where the aroma of fresh pretzels mingles with 
+                        perfectly pulled espresso. Whether you're grabbing breakfast on-the-go or settling 
+                        in for a lazy Sunday brunch, we've saved you a seat.
+                    </p>
                 </div>
-                <div data-marquee="line" class="scroller-line second">
-                    <div class="scroller-text">BERLIN</div>
-                    <div class="marquee-img">
-                        <div class="dual-img">
-                            <img loading="eager" 
-                                 src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/6856cbcb9229dd9da6b054ee_123.png" 
-                                 alt="" 
-                                 class="dual-img-img">
-                        </div>
-                    </div>
-                    <div class="scroller-text">BENGALURU</div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Meet Bäcker & Charlie Section -->
-        <section class="section-3">
-            <div class="w-layout-blockcontainer container-5 w-container">
-                <div class="div-block-7">
-                    <img src="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO.webp" 
-                         loading="lazy" 
-                         width="499" 
-                         sizes="(max-width: 767px) 100vw, 499px" 
-                         alt="Meet the team"
-                         srcset="https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO-p-500.webp 500w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO-p-800.webp 800w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO-p-1080.webp 1080w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO-p-1600.webp 1600w, https://cdn.prod.website-files.com/6856861953e53dcd1e0d00f1/685817c8cc30a649aa4effdd_WA0deCxO.webp 1920w" 
-                         class="image-6">
-                </div>
-                <div class="div-block-8">
-                    <div>
-                        <h1 class="heading-3">Meet Bäcker & Charlie</h1>
-                        <p class="paragraph-2">
-                            Bäcker & Charlie is more than just a name – it's an idea.<br><br>
-                            "Bäcker" means baker in German, reflecting our commitment to authentic German baking traditions.<br><br>
-                            "Charlie" represents a bear, symbolizing Berlin's spirit of friendship, warmth, and connection.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Instagram Feed Section -->
-        <div class="code-embed w-embed w-script">
-            <!-- Elfsight Instagram Feed -->
-            <script src="https://static.elfsight.com/platform/platform.js" async></script>
-            <div class="elfsight-app-b7b59883-1ff4-475d-ba83-3efc2d1093e4" data-elfsight-app-lazy></div>
-        </div>
-
-        <!-- Products Section -->
-        <section class="section_product1">
-            <div class="w-layout-blockcontainer container-large w-container">
-                <div class="margin-bottom margin-small">
-                    <h2 class="heading-style-h2">Our Products</h2>
-                </div>
-                <div class="margin-bottom margin-medium">
-                    <p class="text-size-medium">Discover our authentic German baked goods</p>
-                </div>
-                <div>
-                    <div class="w-dyn-list">
-                        <div role="list" class="collection-list-wrapper-2 w-dyn-items">
-                            <!-- Products will be loaded dynamically or statically here -->
-                            <!-- Based on Firecrawl data, there are many products -->
+                <div class="visit-details-grid">
+                    <article class="visit-detail-card">
+                        <div class="visit-icon-wrapper">
+                            <i data-lucide="map-pin" class="visit-icon"></i>
                         </div>
+                        <div class="visit-detail-content">
+                            <h3>Find Us</h3>
+                            <p class="visit-detail-text">
+                                <strong>Cox Town</strong><br>
+                                Bangalore, Karnataka<br>
+                                <span class="visit-hint">Right next to the morning joggers' route</span>
+                            </p>
+                            <a href="https://maps.google.com" target="_blank" class="visit-cta">
+                                <span>Get Directions</span>
+                                <i data-lucide="arrow-right" class="visit-cta-icon"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="visit-detail-card">
+                        <div class="visit-icon-wrapper">
+                            <i data-lucide="clock" class="visit-icon"></i>
+                        </div>
+                        <div class="visit-detail-content">
+                            <h3>Open Daily</h3>
+                            <p class="visit-detail-text">
+                                <strong>7:00 AM – 7:00 PM</strong><br>
+                                Every single day<br>
+                                <span class="visit-hint">First batch out by 7 AM sharp</span>
+                            </p>
+                            <a href="#menu" class="visit-cta">
+                                <span>View Menu</span>
+                                <i data-lucide="arrow-right" class="visit-cta-icon"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="visit-detail-card">
+                        <div class="visit-icon-wrapper">
+                            <i data-lucide="phone" class="visit-icon"></i>
+                        </div>
+                        <div class="visit-detail-content">
+                            <h3>Get In Touch</h3>
+                            <p class="visit-detail-text">
+                                <strong>Questions? Call us!</strong><br>
+                                +91 XXX XXX XXXX<br>
+                                <span class="visit-hint">hello@baecker.in</span>
+                            </p>
+                            <a href="tel:+91XXXXXXXXXX" class="visit-cta">
+                                <span>Call Now</span>
+                                <i data-lucide="arrow-right" class="visit-cta-icon"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="visit-detail-card visit-highlight">
+                        <div class="visit-icon-wrapper">
+                            <i data-lucide="coffee" class="visit-icon"></i>
+                        </div>
+                        <div class="visit-detail-content">
+                            <h3>Why Visit?</h3>
+                            <ul class="visit-features">
+                                <li><i data-lucide="check" class="visit-check"></i> Freshly baked every 4 AM</li>
+                                <li><i data-lucide="check" class="visit-check"></i> Cozy indoor & outdoor seating</li>
+                                <li><i data-lucide="check" class="visit-check"></i> Dog-friendly patio</li>
+                                <li><i data-lucide="check" class="visit-check"></i> Free WiFi for remote work</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="visit-cta-banner">
+                    <div class="visit-cta-content">
+                        <h3>Planning a visit this weekend?</h3>
+                        <p>Our busiest hours are 8-10 AM on Saturdays. Come early or after 11 AM for a quieter experience.</p>
                     </div>
+                    <a href="#menu" class="visit-main-cta">
+                        <span>Order Ahead</span>
+                        <i data-lucide="shopping-bag" class="visit-cta-icon"></i>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script>
+        // ===== INITIALIZE LUCIDE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // ===== CUSTOM CURSOR =====
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.custom-cursor-follower');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const coarsePointer = window.matchMedia('(pointer: coarse)');
+        const allowAdvancedCursor = !prefersReducedMotion.matches && !coarsePointer.matches;
+
+        if (!allowAdvancedCursor) {
+            document.body.classList.remove('has-custom-cursor');
+            document.body.classList.add('default-cursor');
+            cursor.style.display = 'none';
+            follower.style.display = 'none';
+        } else {
+            let mouseX = 0, mouseY = 0;
+            let followerX = 0, followerY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px)`;
+            });
+
+            function animateFollower() {
+                followerX += (mouseX - followerX) * 0.1;
+                followerY += (mouseY - followerY) * 0.1;
+                follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
+                requestAnimationFrame(animateFollower);
+            }
+            animateFollower();
+
+            // ===== FLOATING ELEMENTS =====
+            const floatingElements = document.querySelectorAll('.floating-element');
+
+            document.addEventListener('mousemove', (e) => {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+
+                floatingElements.forEach((el, index) => {
+                    const speed = (index + 1) * 20;
+                    const xMove = (x - 0.5) * speed;
+                    const yMove = (y - 0.5) * speed;
+                    el.style.transform = `translate(${xMove}px, ${yMove}px)`;
+                });
+            });
+
+            // ===== MAGNETIC BUTTON =====
+            const magneticButton = document.querySelector('.magnetic-button');
+
+            if (magneticButton) {
+                magneticButton.addEventListener('mousemove', (e) => {
+                    const rect = magneticButton.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    magneticButton.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+                });
+
+                magneticButton.addEventListener('mouseleave', () => {
+                    magneticButton.style.transform = 'translate(0, 0) scale(1)';
+                });
+            }
+
+            // ===== CURSOR SIZE CHANGES =====
+            const interactiveElements = document.querySelectorAll('.char, .highlight, .magnetic-button, .tag, .btn-add, .product-card, .cafe-feature, .visit-card, .category-item');
+
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.width = '40px';
+                    cursor.style.height = '40px';
+                    follower.style.width = '60px';
+                    follower.style.height = '60px';
+                });
+
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.width = '20px';
+                    cursor.style.height = '20px';
+                    follower.style.width = '40px';
+                    follower.style.height = '40px';
+                });
+            });
+        }
+
+        // ===== KINETIC TYPOGRAPHY =====
+        const chars = document.querySelectorAll('.char');
+
+        chars.forEach(char => {
+            char.addEventListener('mouseenter', () => {
+                const index = Array.from(chars).indexOf(char);
+                if (chars[index - 1]) chars[index - 1].classList.add('magnetic');
+                if (chars[index + 1]) chars[index + 1].classList.add('magnetic');
+            });
+
+            char.addEventListener('mouseleave', () => {
+                chars.forEach(c => c.classList.remove('magnetic'));
+            });
+        });
+
+        // ===== ENTRANCE ANIMATION =====
+        window.addEventListener('load', () => {
+            chars.forEach((char, index) => {
+                setTimeout(() => {
+                    char.style.opacity = '0';
+                    char.style.transform = 'translateY(100px)';
+
+                    setTimeout(() => {
+                        char.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                        char.style.opacity = '1';
+                        char.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
+        });
+
+        // ===== MENU: MOBILE SIDEBAR =====
+        const mobileSidebarBtn = document.getElementById('mobile-sidebar-btn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const closeSidebar = document.getElementById('close-sidebar');
+
+        mobileSidebarBtn?.addEventListener('click', () => {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.add('open');
+        });
+
+        closeSidebar?.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+        });
+
+        sidebarOverlay?.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+        });
+
+        // ===== MENU: CATEGORY FILTER =====
+        const categoryItems = document.querySelectorAll('.category-item');
+        const products = document.querySelectorAll('.product-card');
+        const emptyState = document.getElementById('empty-state');
+
+        categoryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const category = item.dataset.category;
+
+                // Update active state
+                categoryItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.setAttribute('aria-pressed', 'false');
+                });
+                item.classList.add('active');
+                item.setAttribute('aria-pressed', 'true');
+
+                // Filter products
+                let visibleCount = 0;
+                products.forEach(product => {
+                    if (category === 'all' || product.dataset.category === category) {
+                        product.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+
+                // Show/hide empty state
+                if (visibleCount === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                }
+
+                // Close mobile sidebar
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('open');
+            });
+        });
+
+        // ===== MENU: SEARCH =====
+        const searchInput = document.getElementById('search-input');
+        searchInput?.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            products.forEach(product => {
+                const title = product.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+        });
+
+        // ===== MENU: ADD TO ORDER =====
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const productName = btn.closest('.product-card').querySelector('h3').textContent;
+                alert(`Added "${productName}" to your order!`);
+            });
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
