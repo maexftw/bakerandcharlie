@@ -761,13 +761,18 @@
         .btn-order {
             background: var(--primary);
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             min-height: 48px;
+            width: auto;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-order:hover {
@@ -1418,6 +1423,27 @@
                 box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
             }
 
+            .top-banner .container > div {
+                gap: 0.5rem;
+            }
+
+            .top-banner .flex.items-center.gap-6 {
+                gap: 0.5rem;
+                flex: 1;
+            }
+
+            .btn-order {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+                min-height: 40px;
+            }
+
+            .btn-order i {
+                width: 1rem;
+                height: 1rem;
+                margin-right: 0.25rem;
+            }
+
             body.has-custom-cursor * {
                 cursor: auto !important;
             }
@@ -1734,11 +1760,13 @@
                 <div class="container mx-auto px-6 py-4">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-6">
-                            <button id="mobile-sidebar-btn" class="md:hidden p-2" aria-label="Open categories menu">
+                            <button id="mobile-sidebar-btn" class="md:hidden p-2 flex items-center gap-2" aria-label="Open categories menu">
                                 <i data-lucide="menu" class="w-6 h-6" style="color: var(--cream);"></i>
+                                <span class="text-xs text-cream opacity-80">Menu</span>
                             </button>
-                            <div>
-                                <span class="text-lg font-medium text-white">From <strong style="color: var(--primary);">BERLIN</strong> to <strong style="color: var(--yellow);">BENGALURU</strong></span>
+                            <div class="flex flex-col">
+                                <span class="text-lg font-medium text-white leading-tight">From <strong style="color: var(--primary);">BERLIN</strong> to <strong style="color: var(--yellow);">BENGALURU</strong></span>
+                                <span class="text-xs text-cream opacity-70 hidden md:block">Explore our authentic German specialties</span>
                             </div>
                         </div>
 
