@@ -586,7 +586,14 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
-            z-index: 40;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .top-banner.scrolled {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(30px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
         /* Sidebar */
@@ -1395,6 +1402,20 @@
                 grid-template-columns: 1fr;
                 gap: 1rem;
                 margin-top: 2rem;
+            }
+
+            /* Ensure Top Banner stays on top on Mobile */
+            .top-banner {
+                position: -webkit-sticky; /* Safari */
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: rgba(30, 30, 30, 0.98);
+                backdrop-filter: blur(30px);
+            }
+
+            .top-banner.scrolled {
+                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
             }
 
             body.has-custom-cursor * {
@@ -2487,6 +2508,23 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+        });
+
+        // ===== STICKY TOP BANNER =====
+        const topBanner = document.querySelector('.top-banner');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            // Add 'scrolled' class when scrolling down
+            if (currentScroll > 50) {
+                topBanner?.classList.add('scrolled');
+            } else {
+                topBanner?.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
         });
 
         // ===== CUSTOM CURSOR =====
