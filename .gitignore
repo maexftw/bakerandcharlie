@@ -1,0 +1,38 @@
+# Design Source Files (not needed for production)
+**/*.ai
+**/*.eps
+**/*.pdf
+**/*.AI
+**/*.EPS
+**/*.PDF
+
+# Large Design Assets
+Styleguide SVGs und co/**/AI, PDF & EPS ( COREL DRAW )/
+Styleguide SVGs und co/**/A3 - POSTER SIZE FOR PRINT/
+Styleguide SVGs und co/**/POSTCARD SIZE FOR PRINT/
+
+# Font source files (keep only web fonts if needed)
+**/*.OTF
+**/*.TTF
+**/*.otf
+**/*.ttf
+
+# Development files
+.DS_Store
+Thumbs.db
+*.log
+*.cache
+node_modules/
+.vscode/
+.idea/
+
+# Backup files
+.superdesign/design_iterations/backup/
+
+# Notes and planning
+notes/
+firecrawl_scrape/
+
+# Template folder (not needed in production)
+TEMPLATE/
+
