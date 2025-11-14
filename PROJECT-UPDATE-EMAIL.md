@@ -58,7 +58,7 @@ The website is now live on Cloudflare Pages with a fully functional design. Here
 - Sidebar menu with smooth animations
 
 #### 3. **Photo Gallery**
-- 20 professional product and location photos integrated
+- 20+ professional product and location photos integrated
 - Responsive grid layout
 - Lazy loading for fast performance
 - Hover effects and smooth transitions

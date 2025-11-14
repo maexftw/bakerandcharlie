@@ -17,7 +17,7 @@ I switched from Webflow to custom coding + Cloudflare hosting. Why?
 ✅ Full control for features like online ordering
 
 What's done:
-✅ Complete design with all your photos
+✅ Complete design with 20+ photos integrated
 ✅ Interactive menu system
 ✅ Mobile-optimized
 ✅ Instagram section (needs API key)
