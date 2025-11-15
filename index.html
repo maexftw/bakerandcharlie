@@ -26,7 +26,7 @@
     <style>
         @font-face {
             font-family: 'Alright Sans';
-            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-LIGHT_4.OTF') format('opentype');
+            src: url('../../Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-LIGHT_4.OTF') format('opentype');
             font-weight: 300;
             font-style: normal;
             font-display: swap;
@@ -34,7 +34,7 @@
 
         @font-face {
             font-family: 'Alright Sans';
-            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-REGULAR_4.OTF') format('opentype');
+            src: url('../../Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-REGULAR_4.OTF') format('opentype');
             font-weight: 400;
             font-style: normal;
             font-display: swap;
@@ -42,7 +42,7 @@
 
         @font-face {
             font-family: 'Alright Sans';
-            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-MEDIUM_4.OTF') format('opentype');
+            src: url('../../Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-MEDIUM_4.OTF') format('opentype');
             font-weight: 500;
             font-style: normal;
             font-display: swap;
@@ -50,7 +50,7 @@
 
         @font-face {
             font-family: 'Alright Sans';
-            src: url('Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-BOLD_4.OTF') format('opentype');
+            src: url('../../Styleguide SVGs und co/B&C - COPY FONT - DOWNLOAD & INSTALL BEFORE USING/ALRIGHTSANS-BOLD_4.OTF') format('opentype');
             font-weight: 700;
             font-style: normal;
             font-display: swap;
@@ -121,7 +121,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('Design ohne Titel.png');
+            background-image: url('../../Design ohne Titel.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -586,14 +586,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .top-banner.scrolled {
-            background: rgba(30, 30, 30, 0.95);
-            backdrop-filter: blur(30px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            z-index: 40;
         }
 
         /* Sidebar */
@@ -761,18 +754,13 @@
         .btn-order {
             background: var(--primary);
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 2rem;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             min-height: 48px;
-            width: auto;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .btn-order:hover {
@@ -1008,7 +996,7 @@
             min-height: 70%;
             background-image:
                 linear-gradient(180deg, rgba(20, 12, 8, 0.85), rgba(31, 18, 12, 0.95)),
-                url('Styleguide SVGs und co/BRANDING STRIPES/STRIPES WITH BRANDING/JPEG/STRIPES-WITH-BRANDING.jpg');
+                url('../../Styleguide SVGs und co/BRANDING STRIPES/STRIPES WITH BRANDING/JPEG/STRIPES-WITH-BRANDING.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0.25;
@@ -1388,62 +1376,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            /* Fix Hero Background for Mobile */
-            .interactive-hero::after {
-                background-attachment: scroll;
-                background-size: cover;
-                background-position: center center;
-            }
-
-            .hero-content {
-                padding: 2rem 1.5rem;
-            }
-
-            .hero-logo {
-                max-width: 280px;
-            }
-
-            .hero-proof {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                margin-top: 2rem;
-            }
-
-            /* Ensure Top Banner stays on top on Mobile */
-            .top-banner {
-                position: -webkit-sticky; /* Safari */
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                background: rgba(30, 30, 30, 0.98);
-                backdrop-filter: blur(30px);
-            }
-
-            .top-banner.scrolled {
-                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
-            }
-
-            .top-banner .container > div {
-                gap: 0.5rem;
-            }
-
-            .top-banner .flex.items-center.gap-6 {
-                gap: 0.5rem;
-                flex: 1;
-            }
-
-            .btn-order {
-                padding: 0.5rem 1rem;
-                font-size: 0.875rem;
-                min-height: 40px;
-            }
-
-            .btn-order i {
-                width: 1rem;
-                height: 1rem;
-                margin-right: 0.25rem;
-            }
-
             body.has-custom-cursor * {
                 cursor: auto !important;
             }
@@ -1670,7 +1602,7 @@
 
                 <div class="hero-brand-lockup">
                     <img
-                        src="Styleguide SVGs und co/FULL COLOUR- PRIMARY LOGO TYPE - HORIZONTAL/PNG/PNG---RED---PRIMARY-LOGO-TYPE----HORIZONTAL.png"
+                        src="../../Styleguide SVGs und co/FULL COLOUR- PRIMARY LOGO TYPE - HORIZONTAL/PNG/PNG---RED---PRIMARY-LOGO-TYPE----HORIZONTAL.png"
                         width="480"
                         height="180"
                         alt="Bäcker & Charlie primary logo"
@@ -1760,13 +1692,11 @@
                 <div class="container mx-auto px-6 py-4">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-6">
-                            <button id="mobile-sidebar-btn" class="md:hidden p-2 flex items-center gap-2" aria-label="Open categories menu">
+                            <button id="mobile-sidebar-btn" class="md:hidden p-2" aria-label="Open categories menu">
                                 <i data-lucide="menu" class="w-6 h-6" style="color: var(--cream);"></i>
-                                <span class="text-xs text-cream opacity-80">Menu</span>
                             </button>
-                            <div class="flex flex-col">
-                                <span class="text-lg font-medium text-white leading-tight">From <strong style="color: var(--primary);">BERLIN</strong> to <strong style="color: var(--yellow);">BENGALURU</strong></span>
-                                <span class="text-xs text-cream opacity-70 hidden md:block">Explore our authentic German specialties</span>
+                            <div>
+                                <span class="text-lg font-medium text-white">From <strong style="color: var(--primary);">BERLIN</strong> to <strong style="color: var(--yellow);">BENGALURU</strong></span>
                             </div>
                         </div>
 
@@ -1791,7 +1721,7 @@
 
                         <div class="sidebar-brand-panel">
                             <img
-                                src="Styleguide SVGs und co/INDIVIDUAL -ILLUSTRATIVE ELEMENTS - FROM MONOGRAM/RED/PNG/PRETZEL--INDIVIDUAL-ELEMENTS---RED.png"
+                                src="../../Styleguide SVGs und co/INDIVIDUAL -ILLUSTRATIVE ELEMENTS - FROM MONOGRAM/RED/PNG/PRETZEL--INDIVIDUAL-ELEMENTS---RED.png"
                                 width="120"
                                 height="120"
                                 alt=""
@@ -1864,7 +1794,7 @@
                             <!-- Product 1 -->
                             <article class="product-card" data-category="breads">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/jalapeno-cheese-pretzel.webp"
+                                    <img src="../../WEBSITE OUTPUT/jalapeno-cheese-pretzel.webp"
                                          alt="Jalapeño & Cheese Pretzel"
                                          width="300"
                                          height="220"
@@ -1883,7 +1813,7 @@
                             <!-- Product 2 -->
                             <article class="product-card" data-category="pastries">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/powdered-jelly-berliner.webp"
+                                    <img src="../../WEBSITE OUTPUT/powdered-jelly-berliner.webp"
                                          alt="Berliner - Rhubarb & Kaffir Lime"
                                          width="300"
                                          height="220"
@@ -1902,7 +1832,7 @@
                             <!-- Product 3 -->
                             <article class="product-card" data-category="sandwiches">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/bratwurst-pretzel-slider.webp"
+                                    <img src="../../WEBSITE OUTPUT/bratwurst-pretzel-slider.webp"
                                          alt="Fried Chicken AF!"
                                          width="300"
                                          height="220"
@@ -1921,7 +1851,7 @@
                             <!-- Product 4 -->
                             <article class="product-card" data-category="sandwiches">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/beef-steak-sandwich-sourdough.webp"
+                                    <img src="../../WEBSITE OUTPUT/beef-steak-sandwich-sourdough.webp"
                                          alt="The Beef"
                                          width="300"
                                          height="220"
@@ -1940,7 +1870,7 @@
                             <!-- Product 5 -->
                             <article class="product-card" data-category="breads">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/kornbroetchen-rye-rolls.webp"
+                                    <img src="../../WEBSITE OUTPUT/kornbroetchen-rye-rolls.webp"
                                          alt="Käsebrötchen"
                                          width="300"
                                          height="220"
@@ -1959,7 +1889,7 @@
                             <!-- Product 6 -->
                             <article class="product-card" data-category="sandwiches">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/focaccia-caprese-and-nutella-berliner.webp"
+                                    <img src="../../WEBSITE OUTPUT/focaccia-caprese-and-nutella-berliner.webp"
                                          alt="Caprese Focaccia"
                                          width="300"
                                          height="220"
@@ -1978,7 +1908,7 @@
                             <!-- Product 7 -->
                             <article class="product-card" data-category="breads">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/focaccia-salad-hot-chocolate.webp"
+                                    <img src="../../WEBSITE OUTPUT/focaccia-salad-hot-chocolate.webp"
                                          alt="Olive & Rosemary Focaccia"
                                          width="300"
                                          height="220"
@@ -1997,7 +1927,7 @@
                             <!-- Product 8 -->
                             <article class="product-card" data-category="pastries">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/chocolate-cream-berliner.webp"
+                                    <img src="../../WEBSITE OUTPUT/chocolate-cream-berliner.webp"
                                          alt="Bon Fiction - Rose In Pistachio Skies"
                                          width="300"
                                          height="220"
@@ -2016,7 +1946,7 @@
                             <!-- Product 9 -->
                             <article class="product-card" data-category="breakfast">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/bacon-egg-cheese-breakfast-sandwich.webp"
+                                    <img src="../../WEBSITE OUTPUT/bacon-egg-cheese-breakfast-sandwich.webp"
                                          alt="Eggs Florentine"
                                          width="300"
                                          height="220"
@@ -2035,7 +1965,7 @@
                             <!-- Product 10 -->
                             <article class="product-card" data-category="breads">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/pretzel-breakfast-sandwich.webp"
+                                    <img src="../../WEBSITE OUTPUT/pretzel-breakfast-sandwich.webp"
                                          alt="English Muffins"
                                          width="300"
                                          height="220"
@@ -2054,7 +1984,7 @@
                             <!-- Product 11 -->
                             <article class="product-card" data-category="breakfast">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/pretzel-charcuterie-board.webp"
+                                    <img src="../../WEBSITE OUTPUT/pretzel-charcuterie-board.webp"
                                          alt="German Breakfast Board"
                                          width="300"
                                          height="220"
@@ -2073,7 +2003,7 @@
                             <!-- Product 12 -->
                             <article class="product-card" data-category="breads">
                                 <div style="overflow: hidden;">
-                                    <img src="WEBSITE OUTPUT/pretzel-party-platter.webp"
+                                    <img src="../../WEBSITE OUTPUT/pretzel-party-platter.webp"
                                          alt="Mini Salted Pretzel Party Pack"
                                          width="300"
                                          height="220"
@@ -2114,7 +2044,7 @@
 
                 <div class="gallery-grid">
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/bakery-front-counter.webp"
+                        <img src="../../WEBSITE OUTPUT/bakery-front-counter.webp"
                              alt="Front counter with curated pastry display and warm lighting"
                              width="480"
                              height="320"
@@ -2127,7 +2057,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/pretzels-cooling-rack.webp"
+                        <img src="../../WEBSITE OUTPUT/pretzels-cooling-rack.webp"
                              alt="Fresh pretzels cooling on a rack"
                              width="480"
                              height="320"
@@ -2140,7 +2070,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/pretzel-sandwich-board.webp"
+                        <img src="../../WEBSITE OUTPUT/pretzel-sandwich-board.webp"
                              alt="Pretzel sandwich trio on a wooden board"
                              width="480"
                              height="320"
@@ -2153,7 +2083,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/espresso-machine-with-barista.webp"
+                        <img src="../../WEBSITE OUTPUT/espresso-machine-with-barista.webp"
                              alt="Barista pulling espresso shots beside pastries"
                              width="480"
                              height="320"
@@ -2166,7 +2096,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/artisan-bread-racks.webp"
+                        <img src="../../WEBSITE OUTPUT/artisan-bread-racks.webp"
                              alt="Artisan bread loaves stacked on racks"
                              width="480"
                              height="320"
@@ -2179,7 +2109,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/pretzel-charcuterie-board.webp"
+                        <img src="../../WEBSITE OUTPUT/pretzel-charcuterie-board.webp"
                              alt="Pretzel charcuterie board with spreads and pickles"
                              width="480"
                              height="320"
@@ -2192,7 +2122,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/outdoor-patio-seating.webp"
+                        <img src="../../WEBSITE OUTPUT/outdoor-patio-seating.webp"
                              alt="Outdoor patio seating with string lights"
                              width="480"
                              height="320"
@@ -2205,7 +2135,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/baker-knots-pretzel-dough.webp"
+                        <img src="../../WEBSITE OUTPUT/baker-knots-pretzel-dough.webp"
                              alt="Baker knotting pretzel dough by hand"
                              width="480"
                              height="320"
@@ -2218,7 +2148,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/pretzel-burger-platter.webp"
+                        <img src="../../WEBSITE OUTPUT/pretzel-burger-platter.webp"
                              alt="Pretzel burgers on a platter ready to serve"
                              width="480"
                              height="320"
@@ -2231,7 +2161,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/bakery-team-photo.webp"
+                        <img src="../../WEBSITE OUTPUT/bakery-team-photo.webp"
                              alt="Bakery team posing together in the kitchen"
                              width="480"
                              height="320"
@@ -2244,7 +2174,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/bakery-dining-area.webp"
+                        <img src="../../WEBSITE OUTPUT/bakery-dining-area.webp"
                              alt="Cozy dining area with warm lighting and comfortable seating"
                              width="480"
                              height="320"
@@ -2257,7 +2187,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/pastry-case-closeup.webp"
+                        <img src="../../WEBSITE OUTPUT/pastry-case-closeup.webp"
                              alt="Close-up view of pastries in display case"
                              width="480"
                              height="320"
@@ -2270,7 +2200,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/classic-bavarian-pretzel.webp"
+                        <img src="../../WEBSITE OUTPUT/classic-bavarian-pretzel.webp"
                              alt="Classic Bavarian pretzel with golden brown crust"
                              width="480"
                              height="320"
@@ -2283,7 +2213,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/freshly-baked-bread-loaves.webp"
+                        <img src="../../WEBSITE OUTPUT/freshly-baked-bread-loaves.webp"
                              alt="Freshly baked artisan bread loaves on display"
                              width="480"
                              height="320"
@@ -2296,7 +2226,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/coffee-bar-seating.webp"
+                        <img src="../../WEBSITE OUTPUT/coffee-bar-seating.webp"
                              alt="Coffee bar with comfortable seating area"
                              width="480"
                              height="320"
@@ -2309,7 +2239,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/artisan-baker-cutting-dough.webp"
+                        <img src="../../WEBSITE OUTPUT/artisan-baker-cutting-dough.webp"
                              alt="Artisan baker skillfully cutting dough"
                              width="480"
                              height="320"
@@ -2322,7 +2252,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/pretzel-production-line.webp"
+                        <img src="../../WEBSITE OUTPUT/pretzel-production-line.webp"
                              alt="Pretzel production line showing the baking process"
                              width="480"
                              height="320"
@@ -2335,7 +2265,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/bakery-display-case.webp"
+                        <img src="../../WEBSITE OUTPUT/bakery-display-case.webp"
                              alt="Bakery display case filled with fresh baked goods"
                              width="480"
                              height="320"
@@ -2348,7 +2278,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/chalkboard-menu-sign.webp"
+                        <img src="../../WEBSITE OUTPUT/chalkboard-menu-sign.webp"
                              alt="Chalkboard menu sign with daily specials"
                              width="480"
                              height="320"
@@ -2361,7 +2291,7 @@
                     </figure>
 
                     <figure class="gallery-card">
-                        <img src="WEBSITE OUTPUT/counter-service-area.webp"
+                        <img src="../../WEBSITE OUTPUT/counter-service-area.webp"
                              alt="Counter service area with friendly staff"
                              width="480"
                              height="320"
@@ -2396,7 +2326,7 @@
                 <div class="instagram-preview">
                     <div class="instagram-grid">
                         <div class="instagram-item">
-                            <img src="instagram-images/instagram-post-1.jpg"
+                            <img src="../../instagram-images/instagram-post-1.jpg"
                                  alt="Instagram post 1"
                                  loading="lazy">
                             <div class="instagram-overlay">
@@ -2404,7 +2334,7 @@
                             </div>
                         </div>
                         <div class="instagram-item">
-                            <img src="instagram-images/instagram-post-2.jpg"
+                            <img src="../../instagram-images/instagram-post-2.jpg"
                                  alt="Instagram post 2"
                                  loading="lazy">
                             <div class="instagram-overlay">
@@ -2412,7 +2342,7 @@
                             </div>
                         </div>
                         <div class="instagram-item">
-                            <img src="instagram-images/instagram-post-3.jpg"
+                            <img src="../../instagram-images/instagram-post-3.jpg"
                                  alt="Instagram post 3"
                                  loading="lazy">
                             <div class="instagram-overlay">
@@ -2420,7 +2350,7 @@
                             </div>
                         </div>
                         <div class="instagram-item">
-                            <img src="instagram-images/instagram-post-4.jpg"
+                            <img src="../../instagram-images/instagram-post-4.jpg"
                                  alt="Instagram post 4"
                                  loading="lazy">
                             <div class="instagram-overlay">
@@ -2536,23 +2466,6 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
-        });
-
-        // ===== STICKY TOP BANNER =====
-        const topBanner = document.querySelector('.top-banner');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            // Add 'scrolled' class when scrolling down
-            if (currentScroll > 50) {
-                topBanner?.classList.add('scrolled');
-            } else {
-                topBanner?.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
         });
 
         // ===== CUSTOM CURSOR =====
